@@ -1,6 +1,6 @@
 .header__profile-icon {
     width: 28px;
     height: 28px;
-    align-self: center;
+    background-position: center;
     background: url('../../../assets/profile_icon.svg') no-repeat;
 }

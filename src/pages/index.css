@@ -12,3 +12,5 @@
 @import url('../styles/header/__profile-icon/header__profile-icon.css');
 @import url('../styles/header/__cart-icon/header__cart-icon.css');
 @import url('../styles/header/__text/header__text.css');
+@import url('../styles/header/__tabbar/header__tabbar.css');
+@import url('../styles/header/__svg-button/header__svg-button.css');

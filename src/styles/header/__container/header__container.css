@@ -9,7 +9,6 @@
     background: rgba(255, 255, 255, 0.20);
 }
 
-
 @media screen and (max-width: 720px) {
     .header__container {
         padding: 0;
