@@ -1,0 +1,6 @@
+.header__cart-icon {
+    width: 28px;
+    height: 28px;
+    align-self: center;
+    background: url('../../../assets/cart_icon.svg') no-repeat;
+}

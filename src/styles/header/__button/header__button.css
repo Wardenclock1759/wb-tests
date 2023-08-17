@@ -1,0 +1,14 @@
+.header__button {
+    padding: 0;
+    min-width: 56px;
+    min-height: 56px;
+    padding-bottom: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: auto;
+    border: none;
+    background: none;
+    cursor: pointer;
+}

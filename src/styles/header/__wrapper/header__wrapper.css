@@ -1,0 +1,5 @@
+.header__wrapper {
+    display: flex;
+    margin-left: 32px;
+    gap: 40px;
+}
