@@ -9,3 +9,12 @@
     cursor: pointer;
     opacity: 0.4;
 }
+
+@media screen and (max-width: 720px) {
+    .header__search {
+        width: 28px;
+        height: 28px;
+        opacity: 1;
+        background: url("../../../assets/search_white.svg") no-repeat center;
+    }
+} 

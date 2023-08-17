@@ -6,3 +6,13 @@
     align-items: center;
     display: flex;
 }
+
+@media screen and (max-width: 720px) {
+    .header {
+        margin: 0;
+        padding: 0 13px;
+        display: flex;
+        justify-content: space-between;
+        gap: auto;
+    }
+} 

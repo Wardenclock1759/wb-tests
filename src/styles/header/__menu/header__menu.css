@@ -6,3 +6,11 @@
     height: 48px;
     border: none;
 }
+
+@media screen and (max-width: 720px) {
+    .header__menu {
+        background: url('../../../assets/menu_small.svg') no-repeat;
+        min-width: 28px;
+        height: 28px;
+    }
+} 
