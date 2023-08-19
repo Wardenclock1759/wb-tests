@@ -2,4 +2,9 @@
     padding: 0;
     background: none;
     border: none;
+    cursor: pointer;
+}
+
+.card__icon svg:hover path {
+    fill: #F55123;
 }

@@ -74,5 +74,5 @@ cartCheckbox.addEventListener('click', () => {
         cards.forEach(item => {
             item.setChecked();
         });
-    }    
+    }
 });
