@@ -1,0 +1,12 @@
+.card__price-old {
+    margin: 0;
+    width: fit-content;
+    align-self: flex-end;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: right;
+    color: #A0A0A4;
+    text-decoration: line-through;
+    border-bottom: 1px dashed;
+}

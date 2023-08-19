@@ -1,0 +1,5 @@
+.card__image-wrapper {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+}

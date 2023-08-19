@@ -1,0 +1,9 @@
+.card__company {
+    margin: 0;
+    color: #A0A0A4;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    height: 16px;
+    align-self: center;
+}

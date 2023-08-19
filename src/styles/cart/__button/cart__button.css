@@ -1,0 +1,14 @@
+.cart__button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.cart__button svg {
+    transition: all .5s ease-in;
+}
+
+.cart__button_opened svg {
+    transform: rotate(180deg);
+}

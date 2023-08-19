@@ -1,0 +1,7 @@
+.cart__checkbox {
+    display: flex;
+    gap: 11px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

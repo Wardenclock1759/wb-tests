@@ -1,0 +1,4 @@
+.card__option-wrapper {
+    display: flex;
+    gap: 16px;
+}

@@ -1,0 +1,9 @@
+.card__counter {
+    display: flex;
+    width: 100px;
+    height: 44px;
+    background-color: #FFF;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}

@@ -1,0 +1,6 @@
+.card__order {
+    width: 226px;
+    display: flex;
+    align-self: flex-start;
+    justify-content: space-between;
+}

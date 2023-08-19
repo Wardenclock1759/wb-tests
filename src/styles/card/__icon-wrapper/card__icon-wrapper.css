@@ -1,0 +1,6 @@
+.card__icon-wrapper {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}

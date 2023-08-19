@@ -1,0 +1,4 @@
+.card__company-wrapper {
+    display: flex;
+    gap: 6px;
+}
