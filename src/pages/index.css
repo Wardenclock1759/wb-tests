@@ -43,6 +43,7 @@
 @import url('../styles/card/__button/_order/card__button_order_dec.css');
 @import url('../styles/card/__button/_order/card__button_order_inc.css');
 @import url('../styles/card/__number/card__number.css');
+@import url('../styles/card/__warning/card__warning.css');
 @import url('../styles/card/__button/card__button.css');
 @import url('../styles/card/__icon-wrapper/card__icon-wrapper.css');
 @import url('../styles/card/__icon/card__icon.css');

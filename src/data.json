@@ -9,6 +9,7 @@
         "seller": "Коледино WB",
         "company": "ООО Вайлдберриз",
         "inStock": 2,
+        "initial": 1,
         "newPrice": "522 сом",
         "oldPrice": "1051 сом",
         "src": "https://cdn.discordapp.com/attachments/1027943642553401354/1142043300874952785/shirt.jpg"
@@ -22,6 +23,7 @@
         "seller": "Коледино WB",
         "company": "OOO Мегапрофстиль",
         "inStock": -1,
+        "initial": 200,
         "newPrice": "2100047 сом",
         "oldPrice": "2300047 сом",
         "src": "https://cdn.discordapp.com/attachments/1027943642553401354/1142043468147990528/case.png"
@@ -33,6 +35,7 @@
         "seller": "Коледино WB",
         "company": "ООО Вайлдберриз",
         "inStock": 2,
+        "initial": 2,
         "newPrice": "494 сом",
         "oldPrice": "950 сом",
         "src": "https://cdn.discordapp.com/attachments/1027943642553401354/1142043565107716206/pencils.png"

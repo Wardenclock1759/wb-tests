@@ -5,6 +5,7 @@ export default class Card {
         this._seller = cardData.seller;
         this._company = cardData.company;
         this._inStock = cardData.inStock;
+        this._counterValue = cardData.initial;
 
         const [number, currency] = this._splitString(cardData.newPrice);
         this._newPrice = this._prettify(number);
@@ -41,11 +42,46 @@ export default class Card {
         return [number, currency];
     }
 
+    _decreaseCounter() {
+        this._counterValue--;
+        this._card.querySelector('.card__number').textContent = this._counterValue;
+        this._increaseButton.disabled = false;
+    
+        if (this._counterValue === 1) {
+            this._decreaseButton.disabled = true;
+        }
+    }
+    
+    _increaseCounter() {
+        this._counterValue++;
+        this._card.querySelector('.card__number').textContent = this._counterValue;
+        this._decreaseButton.disabled = false;
+
+        if (this._counterValue === this._inStock - 1) {
+            // this._addWarning();
+        } else if (this._counterValue === this._inStock) {
+            this._increaseButton.disabled = true;
+        }
+    }
+
+    _initiateCounter() {
+        if (this._counterValue === 1) {
+            this._decreaseButton.disabled = true;
+        }
+        if (this._counterValue === this._inStock) {
+            this._increaseButton.disabled = true;
+        }
+    }
+
     generateCard() {
         this._card = this._getTemplate();
         this._checkbox = this._card.querySelector('.card__checkbox');
         this._cardImage = this._card.querySelector('.card__image');
+        this._warningContainer = this._card.querySelector('.card__warning-wrapper');
         const optionContainer = this._card.querySelector('.card__option-wrapper');
+
+        this._decreaseButton = this._card.querySelector('.card__button_order_dec');
+        this._increaseButton = this._card.querySelector('.card__button_order_inc');
     
         this._cardImage.src = this._image;
         this._cardImage.alt = "Изображение: " + this._title;
@@ -56,6 +92,7 @@ export default class Card {
         this._card.querySelector('.card__price-new').textContent = this._newPrice;
         this._card.querySelector('.card__price-old').textContent = this._oldPrice;
         this._card.querySelector('.card__currency').textContent = this._currency;
+        this._card.querySelector('.card__number').textContent = this._counterValue;
 
         const itemOptions = this._options;
         itemOptions.forEach(option => {
@@ -70,9 +107,24 @@ export default class Card {
             optionContainer.append(newOption);
         });
 
+        if (this._inStock !== -1) {
+            const warning = document.createElement('p');
+            warning.textContent = `Осталось ${this._inStock} шт.`
+            warning.classList.add('card__warning');
+            this._warningContainer.append(warning);
+        }
+
+        this._initiateCounter();
+
         this._checkbox.addEventListener('click', () => {
             this.cartCheckboxClick();
         });
+        this._decreaseButton.addEventListener('click', () => {
+            this._decreaseCounter();
+        })
+        this._increaseButton.addEventListener('click', () => {
+            this._increaseCounter();
+        })
     
         return this._card;
     }

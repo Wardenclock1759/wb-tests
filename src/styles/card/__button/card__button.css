@@ -6,3 +6,7 @@
     line-height: 24px;
     letter-spacing: -0.2px; 
 }
+
+.card__button:disabled {
+    opacity: 0.2;
+}
