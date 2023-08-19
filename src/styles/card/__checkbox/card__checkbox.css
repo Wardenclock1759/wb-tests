@@ -6,3 +6,7 @@
     height: 22px;
     cursor: pointer;
 }
+
+.card__checkbox_hidden {
+    display: none;
+}

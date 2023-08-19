@@ -4,6 +4,8 @@ import Section from "../components/Section";
 import Card from "../components/Card";
 const data = require('../data.json');
 
+const cards = [];
+
 const cardSection = new Section(
     (item) => {
       const cardElement = createCard(item);
@@ -16,7 +18,9 @@ function createCard(cardData) {
       cardData,
       "#card-template",
     );
-    return card.generateCard();
+    const newCard = card.generateCard();
+    cards.push(card);
+    return newCard;
 }
 
 data.map(card => {
@@ -49,3 +53,26 @@ newPrice.forEach(priceContainer => {
         priceContainer.classList.add('card__price-new_small');
     }
 })
+
+const cartCheckbox = document.querySelector('.cart__checkbox');
+const checkboxUnchecked = document.querySelector('#cart__checkbox_unchecked');
+const checkboxChecked = document.querySelector('#cart__checkbox_checked');
+cartCheckbox.addEventListener('click', () => {
+    if (checkboxChecked.classList.contains('cart__checkbox_unchecked')) {
+        checkboxChecked.classList.remove('cart__checkbox_unchecked');
+        checkboxUnchecked.classList.add('cart__checkbox_unchecked');
+
+        cards.forEach(item => {
+            item.setUnchecked();
+        });
+
+        return;
+    } else {
+        checkboxChecked.classList.add('cart__checkbox_unchecked');
+        checkboxUnchecked.classList.remove('cart__checkbox_unchecked');
+
+        cards.forEach(item => {
+            item.setChecked();
+        });
+    }    
+});

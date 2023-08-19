@@ -69,7 +69,39 @@ export default class Card {
             newOption.textContent = optionString;
             optionContainer.append(newOption);
         });
+
+        this._checkbox.addEventListener('click', () => {
+            this.cartCheckboxClick();
+        });
     
         return this._card;
     }
+
+    cartCheckboxClick() {
+        const checked = this._checkbox.querySelector('.card__checkbox_checked');
+        const unChecked = this._checkbox.querySelector('.card__checkbox_unchecked');
+
+        if (checked.classList.contains('card__checkbox_hidden')) {
+            checked.classList.remove('card__checkbox_hidden');
+            unChecked.classList.add('card__checkbox_hidden');
+            return;
+        }
+        checked.classList.add('card__checkbox_hidden');
+        unChecked.classList.remove('card__checkbox_hidden');
+    }
+
+    setChecked() {
+        const checked = this._checkbox.querySelector('.card__checkbox_checked');
+        const unChecked = this._checkbox.querySelector('.card__checkbox_unchecked');
+        checked.classList.add('card__checkbox_hidden');
+        unChecked.classList.remove('card__checkbox_hidden');
+    }
+
+    setUnchecked() {
+        const checked = this._checkbox.querySelector('.card__checkbox_checked');
+        const unChecked = this._checkbox.querySelector('.card__checkbox_unchecked');
+        checked.classList.remove('card__checkbox_hidden');
+        unChecked.classList.add('card__checkbox_hidden');
+    }
+
 }

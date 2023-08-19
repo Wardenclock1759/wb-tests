@@ -5,3 +5,7 @@
     align-items: center;
     cursor: pointer;
 }
+
+.cart__checkbox_unchecked {
+    display: none;
+}
