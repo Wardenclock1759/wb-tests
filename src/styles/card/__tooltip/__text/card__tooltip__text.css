@@ -4,3 +4,7 @@
     font-weight: 400;
     line-height: 16px;
 }
+
+.card__tooltip__text_grey {
+    color: #A0A0A4; 
+}

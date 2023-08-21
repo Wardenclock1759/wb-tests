@@ -9,6 +9,7 @@
     color: #A0A0A4;
     text-decoration: line-through;
     border-bottom: 1px dashed;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 720px) {

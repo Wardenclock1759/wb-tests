@@ -93,22 +93,57 @@ export default class Card {
         this._newPriceContainer = this._card.querySelector('.card__price-new');
         this._oldPriceContainer = this._card.querySelector('.card__price-old');
 
-        this._tooltip = this._card.querySelector('.card__tooltip');
-        if (this._tooltip) {
+        this._infoTooltip = this._card.querySelector('.card__tooltip_company');
+        if (this._infoTooltip) {
             const name = document.createElement('h2');
             name.classList.add('card__tooltip__title');
             name.textContent = this._company.name;
-            this._tooltip.append(name);
+            this._infoTooltip.append(name);
 
             const ogrn = document.createElement('span');
             ogrn.classList.add('card__tooltip__text');
             ogrn.textContent = `ОГРН: ${this._company.ogrn}`;
-            this._tooltip.append(ogrn);
+            this._infoTooltip.append(ogrn);
 
             const address = document.createElement('span');
             address.classList.add('card__tooltip__text');
             address.textContent = this._company.address;
-            this._tooltip.append(address);
+            this._infoTooltip.append(address);
+        }
+
+        this._priceTooltip = this._card.querySelector('.card__tooltip_price');
+        if (this._priceTooltip) {
+            let row = document.createElement('div');
+            row.classList.add('card__tooltip__row');
+
+            let totalDiscount = document.createElement('span');
+            totalDiscount.classList.add('card__tooltip__text');
+            totalDiscount.classList.add('card__tooltip__text_grey');
+            totalDiscount.textContent = 'Скидка 55%';
+            row.append(totalDiscount);
+
+            let totalDiscountValue = document.createElement('span');
+            totalDiscountValue.classList.add('card__tooltip__text');
+            totalDiscountValue.textContent = '−300 сом';
+            row.append(totalDiscountValue);
+
+            this._priceTooltip.append(row);
+
+            row = document.createElement('div');
+            row.classList.add('card__tooltip__row');
+
+            totalDiscount = document.createElement('span');
+            totalDiscount.classList.add('card__tooltip__text');
+            totalDiscount.classList.add('card__tooltip__text_grey');
+            totalDiscount.textContent = 'Скидка покупателя 10%';
+            row.append(totalDiscount);
+
+            totalDiscountValue = document.createElement('span');
+            totalDiscountValue.classList.add('card__tooltip__text');
+            totalDiscountValue.textContent = '−30 сом';
+            row.append(totalDiscountValue);
+
+            this._priceTooltip.append(row);
         }
     
         this._cardImage.src = this._image;
