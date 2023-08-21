@@ -10,3 +10,9 @@
     text-decoration: line-through;
     border-bottom: 1px dashed;
 }
+
+@media screen and (max-width: 720px) {
+    .card__price-old {
+        font-size: 12px;
+    }
+}

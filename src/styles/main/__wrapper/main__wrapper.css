@@ -1,9 +1,16 @@
 .main__wrapper {
     width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     margin-left: 23px;
-    /* margin-right: 32px; */
     margin-right: 360px;
     padding-top: 34px;
+}
+
+@media screen and (max-width: 720px) {
+    .main__wrapper {
+        margin: 0;
+        padding: 0 16px;
+    }
 }

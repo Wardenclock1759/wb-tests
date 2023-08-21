@@ -7,3 +7,11 @@
     align-items: center;
     border-radius: 8px;
 }
+
+@media screen and (max-width: 720px) {
+    .card__counter {
+        width: 80px;
+        height: 32px;
+        border-radius: 4px;
+    }
+}

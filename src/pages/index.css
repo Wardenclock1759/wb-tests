@@ -39,6 +39,7 @@
 @import url('../styles/card/__company-wrapper/card__company-wrapper.css');
 @import url('../styles/card/__order/card__order.css');
 @import url('../styles/card/__info/card__info.css');
+@import url('../styles/card/__volume/card__volume.css');
 @import url('../styles/card/__counter/card__counter.css');
 @import url('../styles/card/__button/_order/card__button_order_dec.css');
 @import url('../styles/card/__button/_order/card__button_order_inc.css');
@@ -52,3 +53,6 @@
 @import url('../styles/card/__currency/card__currency.css');
 @import url('../styles/card/__price-new/card__price-new.css');
 @import url('../styles/card/__price-old/card__price-old.css');
+@import url('../styles/card/__wrapper_mobile/card__wrapper_mobile.css');
+@import url('../styles/card/__info-wrapper/card__info-wrapper.css');
+@import url('../styles/card/__data/card__data.css');

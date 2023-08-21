@@ -6,3 +6,13 @@
     line-height: 36px;
     letter-spacing: -0.28px;
 }
+
+@media screen and (max-width: 720px) {
+    .cart__title {
+        margin-top: 15px;
+        margin-bottom: 0;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -0.2px; 
+    }
+}

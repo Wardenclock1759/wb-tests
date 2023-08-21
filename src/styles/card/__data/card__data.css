@@ -1,0 +1,22 @@
+.card__data {
+    width: 22px;
+    height: 22px;
+    background-color: #FFF;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    text-align: center;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px; 
+}
+
+@media screen and (max-width: 720px) {
+    .card__data {
+        display: block;
+    }
+}

@@ -3,3 +3,10 @@
     flex-direction: column;
     gap: 5px;
 }
+
+@media screen and (max-width: 720px) {
+    .card__total {
+        flex-direction: row;
+        align-items: center;
+    }
+}

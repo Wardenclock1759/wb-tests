@@ -1,0 +1,5 @@
+.card__wrapper_mobile {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}

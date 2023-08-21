@@ -9,5 +9,7 @@
 @media screen and (max-width: 720px) {
     .card__image {
         margin: 0;
+        width: 80px;
+        height: 106px;
     }
 }

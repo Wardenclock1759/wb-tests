@@ -108,17 +108,36 @@ export default class Card {
         this._card.querySelector('.card__currency').textContent = this._currency;
         this._card.querySelector('.card__number').textContent = this._counterValue;
 
-        const itemOptions = this._options;
+        let itemOptions = this._options;
+        let optionList = [];
+        const wideScreen = this._templateSelector === "#card-template-default" ? true : false;
+        // if (!wideScreen) {
+        //     itemOptions = itemOptions.slice(0, 1);
+        // }
+
         itemOptions.forEach(option => {
             let optionString = '';
             const keys = Object.keys(option);
+            if (!wideScreen && keys.includes('Размер')) {
+                const size = document.createElement('span');
+                size.textContent = option['Размер'];
+                size.classList.add('card__data');
+                this._card.querySelector('.card__image-wrapper').append(size);
+            }
             keys.forEach(key => {
                 optionString = `${key}: ${option[key]}`;
-            })
+            });
             const newOption = document.createElement('p');
             newOption.classList.add('card__option');
             newOption.textContent = optionString;
-            optionContainer.append(newOption);
+            optionList.push(newOption);
+        });
+
+        if (!wideScreen && optionList.length > 0) {
+            optionList = optionList.slice(0, 1);
+        }
+        optionList.forEach(option => {
+            optionContainer.append(option);
         });
 
         if (this._inStock !== -1) {

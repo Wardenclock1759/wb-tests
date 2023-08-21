@@ -3,3 +3,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 720px) {
+    .cart__wrapper {
+        margin-top: 16px;
+    }
+}

@@ -8,3 +8,9 @@
 .card__icon svg:hover path {
     fill: #F55123;
 }
+
+@media screen and (max-width: 720px) {
+    .card__icon {
+        padding: 4px 12px 13px 12px;
+    }
+}

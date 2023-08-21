@@ -4,3 +4,10 @@
     justify-content: flex-end;
     gap: 16px;
 }
+
+@media screen and (max-width: 720px) {
+    .card__icon-wrapper {
+        margin-top: 0px;
+        gap: 0;
+    }
+}

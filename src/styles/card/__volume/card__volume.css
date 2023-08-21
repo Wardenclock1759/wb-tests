@@ -1,0 +1,8 @@
+@media screen and (max-width: 720px) {
+    .card__volume {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 11px;
+    }
+}

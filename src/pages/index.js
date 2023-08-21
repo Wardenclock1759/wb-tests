@@ -52,7 +52,7 @@ button.addEventListener('click', () => {
 const newPrice = document.querySelectorAll('.card__price-new');
 newPrice.forEach(priceContainer => {
     const priceWidth = priceContainer.clientWidth;
-    if (priceWidth >= 40) {
+    if (priceWidth >= 80) {
         priceContainer.classList.add('card__price-new_small');
     }
 })
