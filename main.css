@@ -30,14 +30,14 @@
 .card__image-wrapper{align-items:center;align-self:flex-start;display:flex}@media screen and (max-width:720px){.card__image-wrapper{position:relative}}
 .card__image{border-radius:8px;height:96px;margin-left:12px;margin-right:16px;width:72px}@media screen and (max-width:720px){.card__image{height:106px;margin:0;width:80px}}
 .card__checkbox{background:none;border:none;cursor:pointer;height:22px;padding:0;width:22px}.card__checkbox_hidden{display:none}.card__checkbox svg rect{fill:#f6f6fa}@media screen and (max-width:720px){.card__checkbox{left:0;margin-left:4px;margin-top:4px;position:absolute;top:0}.card__checkbox svg rect{fill:#fff}}
-.card__title{font-size:16px;font-weight:400;line-height:24px;margin:0}@media screen and (max-width:720px){.card__title{font-size:14px;line-height:20px;max-height:40px;overflow:hidden;text-overflow:ellipsis;white-space:pre-wrap}}
+.card__title{font-size:16px;font-weight:400;line-height:24px;margin:0}@media screen and (max-width:720px){.card__title{-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;font-size:14px;line-height:20px;overflow:hidden;text-overflow:ellipsis}}
 .card__option-wrapper{display:flex;gap:16px}
 .card__option{font-size:13px;font-weight:400;line-height:16px;margin:8px 0 0}
 .card__seller{color:#a0a0a4;font-size:13px;font-weight:400;line-height:16px;margin:8px 0 0}
 .card__company{align-self:center;color:#a0a0a4;font-size:13px;font-weight:400;height:16px;line-height:16px;margin:0}
-.card__about{background:none;border:none;cursor:pointer;height:20px;margin:0;padding:0;width:20px}
+.card__about{background:none;border:none;cursor:pointer;height:20px;margin:0;padding:0;position:relative;width:20px}
 .card__company-wrapper{display:flex;gap:6px}
-.card__order{align-self:flex-start;display:flex;justify-content:space-between;width:226px}
+.card__order{align-self:flex-start;display:flex;height:60px;justify-content:space-between;position:relative;width:226px}
 .card__info{max-width:275px}
 @media screen and (max-width:720px){.card__volume{display:flex;justify-content:space-between;padding-top:11px;width:100%}}
 .card__counter{align-items:center;background-color:#fff;border-radius:8px;display:flex;height:44px;justify-content:space-between;width:100px}@media screen and (max-width:720px){.card__counter{border-radius:4px;height:32px;width:80px}}
@@ -52,10 +52,15 @@
 .card__total{display:flex;flex-direction:column;gap:5px}@media screen and (max-width:720px){.card__total{align-items:center;flex-direction:row}}
 .card__currency{font-size:16px;font-weight:700;height:28px;line-height:27px;margin:0;text-align:right;width:35px}@media screen and (max-width:720px){.card__currency{align-content:center;height:20px;line-height:22px}}
 .card__price-new{font-size:20px;font-style:normal;font-weight:700;letter-spacing:-.4px;line-height:24px;margin:0;text-align:right}.card__price-new_small{font-size:16px;font-style:normal;line-height:27px}@media screen and (max-width:720px){.card__price-new{font-size:16px;letter-spacing:.4}}
-.card__price-old{align-self:flex-end;border-bottom:1px dashed;color:#a0a0a4;font-size:13px;font-weight:400;line-height:16px;margin:0;text-align:right;text-decoration:line-through;width:-moz-fit-content;width:fit-content}@media screen and (max-width:720px){.card__price-old{font-size:12px}}
+.card__price-old{align-self:flex-end;border-bottom:1px dashed;color:#a0a0a4;cursor:pointer;font-size:13px;font-weight:400;line-height:16px;margin:0;text-align:right;text-decoration:line-through;width:-moz-fit-content;width:fit-content}@media screen and (max-width:720px){.card__price-old{font-size:12px}}
 .card__wrapper_mobile{display:flex;gap:16px;justify-content:space-between}
 .card__info-wrapper{width:192px}
 .card__data{background-color:#fff;border-radius:6px;bottom:0;display:none;font-size:14px;font-weight:400;height:22px;left:0;line-height:20px;margin-bottom:4px;margin-left:4px;position:absolute;text-align:center;width:22px}@media screen and (max-width:720px){.card__data{display:block}}
+.card__tooltip{background-color:#fff;border-radius:6px;bottom:-550%;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;justify-content:space-between;margin-left:-140px;padding:11px 16px 13px;position:absolute;text-align:left;visibility:hidden;width:280px;z-index:2}.card__tooltip_company{left:50%}.card__tooltip_price{bottom:-100%;right:0;width:240px}.card__about:hover .card__tooltip,.card__price-wrapper:hover .card__tooltip{animation:fadeIn 1s;visibility:visible}.card:last-child .card__about:hover .card__tooltip{bottom:125%}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}
+.card__tooltip__title{font-size:13px;font-style:normal;font-weight:700;line-height:16px;margin:0}
+.card__tooltip__text{font-size:13px;font-style:normal;font-weight:400;line-height:16px}.card__tooltip__text_grey{color:#a0a0a4}
+.card__price-wrapper{display:flex;justify-content:flex-end}
+.card__tooltip__row{display:flex;gap:auto;justify-content:space-between}
 .footer{display:flex;justify-content:center;padding:24px 0}@media screen and (max-width:720px){.footer{padding-bottom:80px}}
 .footer__title{color:#fff;font-size:13px;font-weight:400;line-height:16px;opacity:.7}
 
