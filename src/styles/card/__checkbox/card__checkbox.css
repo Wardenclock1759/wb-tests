@@ -10,3 +10,21 @@
 .card__checkbox_hidden {
     display: none;
 }
+
+.card__checkbox svg rect {
+    fill: #F6F6FA;
+}
+
+@media screen and (max-width: 720px) {
+    .card__checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 4px;
+        margin-left: 4px;
+    }
+
+    .card__checkbox svg rect {
+        fill: #FFF;
+    }
+}

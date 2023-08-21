@@ -5,3 +5,9 @@
     margin-left: 12px;
     margin-right: 16px;
 }
+
+@media screen and (max-width: 720px) {
+    .card__image {
+        margin: 0;
+    }
+}

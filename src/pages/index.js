@@ -16,7 +16,7 @@ const cardSection = new Section(
 function createCard(cardData) {
     const card = new Card(
       cardData,
-      "#card-template",
+      "#card-template-default",
     );
     const newCard = card.generateCard();
     cards.push(card);
