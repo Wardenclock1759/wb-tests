@@ -56,4 +56,6 @@
 .card__wrapper_mobile{display:flex;gap:16px;justify-content:space-between}
 .card__info-wrapper{width:192px}
 .card__data{background-color:#fff;border-radius:6px;bottom:0;display:none;font-size:14px;font-weight:400;height:22px;left:0;line-height:20px;margin-bottom:4px;margin-left:4px;position:absolute;text-align:center;width:22px}@media screen and (max-width:720px){.card__data{display:block}}
+.footer{display:flex;justify-content:center;padding:24px 0}@media screen and (max-width:720px){.footer{padding-bottom:80px}}
+.footer__title{color:#fff;font-size:13px;font-weight:400;line-height:16px;opacity:.7}
 
