@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+@media screen and (max-width: 720px) {
+    .footer {
+        padding-bottom: 80px;
+    }
+}
