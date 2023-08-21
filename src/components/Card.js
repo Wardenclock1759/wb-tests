@@ -98,7 +98,11 @@ export default class Card {
 
         this._card.querySelector('.card__title').textContent = this._title;
         this._card.querySelector('.card__seller').textContent = this._seller;
-        this._card.querySelector('.card__company').textContent = this._company;
+
+        if (this._card.querySelector('.card__company')) {
+            this._card.querySelector('.card__company').textContent = this._company;
+        }
+        
         this._card.querySelector('.card__price-new').textContent = this._newPrice;
         this._card.querySelector('.card__price-old').textContent = this._oldPrice;
         this._card.querySelector('.card__currency').textContent = this._currency;

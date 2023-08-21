@@ -7,27 +7,30 @@ const data = require('../data.json');
 const cards = [];
 
 const cardSection = new Section(
-    (item) => {
-      const cardElement = createCard(item);
+    (item, template) => {
+      const cardElement = createCard(item, template);
       cardSection.addItem(cardElement);
     }, ".card__list"
 );
 
-function createCard(cardData) {
+function createCard(cardData, template) {
     const card = new Card(
       cardData,
-      "#card-template-default",
+      template,
     );
     const newCard = card.generateCard();
     cards.push(card);
     return newCard;
 }
 
-data.map(card => {
-    createCard(card);
-})
+let isDefaultScreen = screen.width > 720;
+let cardTemplate = "#card-template-default";
 
-cardSection.renderItems(data);
+if (!isDefaultScreen) {
+    cardTemplate = "#card-template-small";
+}
+
+cardSection.renderItems(data, cardTemplate);
 
 const button = document.querySelector('.cart__button');
 const container = document.querySelector('.card__list');
