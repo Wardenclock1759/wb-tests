@@ -92,6 +92,24 @@ export default class Card {
         this._increaseButton = this._card.querySelector('.card__button_order_inc');
         this._newPriceContainer = this._card.querySelector('.card__price-new');
         this._oldPriceContainer = this._card.querySelector('.card__price-old');
+
+        this._tooltip = this._card.querySelector('.card__tooltip');
+        if (this._tooltip) {
+            const name = document.createElement('h2');
+            name.classList.add('card__tooltip__title');
+            name.textContent = this._company.name;
+            this._tooltip.append(name);
+
+            const ogrn = document.createElement('span');
+            ogrn.classList.add('card__tooltip__text');
+            ogrn.textContent = `ОГРН: ${this._company.ogrn}`;
+            this._tooltip.append(ogrn);
+
+            const address = document.createElement('span');
+            address.classList.add('card__tooltip__text');
+            address.textContent = this._company.address;
+            this._tooltip.append(address);
+        }
     
         this._cardImage.src = this._image;
         this._cardImage.alt = "Изображение: " + this._title;
@@ -100,7 +118,7 @@ export default class Card {
         this._card.querySelector('.card__seller').textContent = this._seller;
 
         if (this._card.querySelector('.card__company')) {
-            this._card.querySelector('.card__company').textContent = this._company;
+            this._card.querySelector('.card__company').textContent = this._company.name;
         }
         
         this._card.querySelector('.card__price-new').textContent = this._newPrice;
@@ -111,9 +129,6 @@ export default class Card {
         let itemOptions = this._options;
         let optionList = [];
         const wideScreen = this._templateSelector === "#card-template-default" ? true : false;
-        // if (!wideScreen) {
-        //     itemOptions = itemOptions.slice(0, 1);
-        // }
 
         itemOptions.forEach(option => {
             let optionString = '';

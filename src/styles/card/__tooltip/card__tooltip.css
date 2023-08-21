@@ -1,0 +1,35 @@
+.card__tooltip {
+    width: 280px;
+    padding: 11px 16px 13px;
+    box-sizing: border-box;
+    margin-left: -140px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    visibility: hidden;
+    border-radius: 6px;
+    background-color: #FFF;
+    text-align: left;
+    position: absolute;
+    bottom: -550%;
+    left: 50%;
+    z-index: 2;
+}
+
+.card__tooltip.card__tooltip_about {
+    gap: 8px;
+}
+
+.card__about:hover .card__tooltip {
+    visibility: visible;
+    animation: fadeIn 1s;
+}
+
+.card:last-child .card__about:hover .card__tooltip {
+    bottom: 125%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

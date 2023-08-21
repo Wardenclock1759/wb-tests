@@ -56,5 +56,8 @@
 @import url('../styles/card/__wrapper_mobile/card__wrapper_mobile.css');
 @import url('../styles/card/__info-wrapper/card__info-wrapper.css');
 @import url('../styles/card/__data/card__data.css');
+@import url('../styles/card/__tooltip/card__tooltip.css');
+@import url('../styles/card/__tooltip/__title/card__tooltip__title.css');
+@import url('../styles/card/__tooltip/__text/card__tooltip__text.css');
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');
