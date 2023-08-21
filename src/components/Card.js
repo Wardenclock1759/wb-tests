@@ -8,9 +8,9 @@ export default class Card {
         this._counterValue = cardData.initial;
 
         const [number, currency] = this._splitString(cardData.newPrice);
-        this._newPrice = this._prettify(number);
+        this._newPrice = number;
         this._currency = currency;
-        this._oldPrice = this._formatOldPrice(cardData.oldPrice);
+        this._oldPrice = cardData.oldPrice;
         
         this._image = cardData.src;
         this._templateSelector = templateSelector;
@@ -29,9 +29,9 @@ export default class Card {
         }
     }
 
-    _formatOldPrice(string) {
+    _formatOldPrice(string = '', multiplier = 1) {
         const [number, currency] = this._splitString(string);
-        const formattedNumber = this._prettify(number);
+        const formattedNumber = this._prettify(number * multiplier);
         return `${formattedNumber} ${currency}`;
     }
 
@@ -50,6 +50,8 @@ export default class Card {
         if (this._counterValue === 1) {
             this._decreaseButton.disabled = true;
         }
+
+        this._initiateTotal();
     }
     
     _increaseCounter() {
@@ -58,10 +60,11 @@ export default class Card {
         this._decreaseButton.disabled = false;
 
         if (this._counterValue === this._inStock - 1) {
-            // this._addWarning();
         } else if (this._counterValue === this._inStock) {
             this._increaseButton.disabled = true;
         }
+
+        this._initiateTotal();
     }
 
     _initiateCounter() {
@@ -73,6 +76,11 @@ export default class Card {
         }
     }
 
+    _initiateTotal() {
+        this._newPriceContainer.textContent = this._prettify(this._counterValue * this._newPrice);
+        this._oldPriceContainer.textContent = this._formatOldPrice(this._oldPrice, this._counterValue);
+    }
+
     generateCard() {
         this._card = this._getTemplate();
         this._checkbox = this._card.querySelector('.card__checkbox');
@@ -82,6 +90,8 @@ export default class Card {
 
         this._decreaseButton = this._card.querySelector('.card__button_order_dec');
         this._increaseButton = this._card.querySelector('.card__button_order_inc');
+        this._newPriceContainer = this._card.querySelector('.card__price-new');
+        this._oldPriceContainer = this._card.querySelector('.card__price-old');
     
         this._cardImage.src = this._image;
         this._cardImage.alt = "Изображение: " + this._title;
@@ -109,12 +119,13 @@ export default class Card {
 
         if (this._inStock !== -1) {
             const warning = document.createElement('p');
-            warning.textContent = `Осталось ${this._inStock} шт.`
+            warning.textContent = `Осталось ${this._inStock} шт.`;
             warning.classList.add('card__warning');
             this._warningContainer.append(warning);
         }
 
         this._initiateCounter();
+        this._initiateTotal();
 
         this._checkbox.addEventListener('click', () => {
             this.cartCheckboxClick();

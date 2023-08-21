@@ -24,8 +24,8 @@
         "company": "OOO Мегапрофстиль",
         "inStock": -1,
         "initial": 200,
-        "newPrice": "2100047 сом",
-        "oldPrice": "2300047 сом",
+        "newPrice": "10500.235 сом",
+        "oldPrice": "11500.235 сом",
         "src": "https://cdn.discordapp.com/attachments/1027943642553401354/1142043468147990528/case.png"
     },
     {
@@ -36,8 +36,8 @@
         "company": "ООО Вайлдберриз",
         "inStock": 2,
         "initial": 2,
-        "newPrice": "494 сом",
-        "oldPrice": "950 сом",
+        "newPrice": "247 сом",
+        "oldPrice": "475 сом",
         "src": "https://cdn.discordapp.com/attachments/1027943642553401354/1142043565107716206/pencils.png"
     }
 ]
