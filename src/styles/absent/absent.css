@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 
-.card__list.card__list_absent {
+.card__list.card__list_absent .card__container {
     filter: grayscale(100%);
 }
 
@@ -44,6 +44,10 @@
 
 .card__list.card__list_absent .card__total {
     display: none;
+}
+
+.card__list.card__list_absent svg:hover path {
+    fill: #CB11AB;
 }
 
 @media screen and (max-width: 720px) {
