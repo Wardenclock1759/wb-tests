@@ -13,11 +13,19 @@
     text-align: left;
     position: absolute;
     bottom: -550%;
-    z-index: 2;
+    z-index: 20;
 }
 
 .card__tooltip_company {
     left: 50%;
+}
+
+.card__tooltip_delivery {
+    bottom: -350%;
+    left: 50%;
+    width: 288px;
+    box-sizing: border-box;
+    padding: 10px 16px 14px;
 }
 
 .card__tooltip_price {
@@ -38,6 +46,11 @@
 
 .card:last-child .card__about:hover .card__tooltip {
     bottom: 125%;
+}
+
+.panel__tooltip:hover .card__tooltip {
+    visibility: visible;
+    animation: fadeIn 1s;
 }
 
 @keyframes fadeIn {

@@ -1,0 +1,5 @@
+.panel__confirmation-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

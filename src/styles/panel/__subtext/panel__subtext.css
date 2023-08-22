@@ -9,4 +9,5 @@
 .panel__subtext_active {
     color: #0CB477;
     border-bottom: 1px dashed;
+    cursor: pointer;
 }
