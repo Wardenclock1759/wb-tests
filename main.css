@@ -16,7 +16,7 @@
 .header__svg-button{background:none;border:none;padding:0;position:relative}
 .main{background-color:#f6f6fa;border-radius:24px;min-height:100vh}
 .main__container{display:flex}
-.main__wrapper{box-sizing:border-box;display:flex;flex-direction:column;margin-left:23px;margin-right:360px;padding-top:34px;width:100%}@media screen and (max-width:720px){.main__wrapper{margin:0;padding:0}}
+.main__wrapper{box-sizing:border-box;display:flex;flex-direction:column;margin-left:23px;margin-right:360px;padding-bottom:50px;padding-top:34px;width:100%}@media screen and (max-width:720px){.main__wrapper{margin:0;padding:0}}
 .cart{display:flex;flex-direction:column}@media screen and (max-width:720px){.cart{padding:0 16px}}
 .cart__title{font-size:28px;font-weight:700;letter-spacing:-.28px;line-height:36px;margin:0 0 27px}@media screen and (max-width:720px){.cart__title{font-size:20px;letter-spacing:-.2px;line-height:28px;margin-bottom:0;margin-top:15px}}
 .cart__wrapper{align-items:center;display:flex;justify-content:space-between}@media screen and (max-width:720px){.cart__wrapper{margin-top:16px}}
