@@ -13,3 +13,14 @@
     font-weight: 600;
     line-height: 18px; 
 }
+
+.floater_cart {
+    top: -10%;
+    right: 10%;
+}
+
+.floater_cart_small {
+    top: -20%;
+    right: -20%;
+    padding: 0 2px;
+}

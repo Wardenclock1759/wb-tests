@@ -41,8 +41,10 @@ const secondRowDelivery = document.querySelector('#panel__content__date_secondar
 
 function initDelivery() {
     const limit = 184;
+    let itemCount = 0;
     cards.forEach((card) => {
         const count = card._counterValue;
+        itemCount += count;
 
         const container = document.createElement('div');
         container.classList.add('floater__container');
@@ -83,6 +85,19 @@ function initDelivery() {
             secondRowDelivery.append(secondRowContainer);
         }
     });
+
+    const cartButton = document.querySelector('#header__cartButton');
+    const cartButtonSmall = document.querySelector('#tabbar__cartButton');
+    let floater = document.createElement('div');
+    floater.classList.add('floater');
+    floater.classList.add('floater_cart');
+    floater.textContent = itemCount;
+    cartButton.append(floater);
+    floater = document.createElement('div');
+    floater.classList.add('floater');
+    floater.classList.add('floater_cart_small');
+    floater.textContent = itemCount;
+    cartButtonSmall.append(floater);
 }
 
 const cartButton = document.querySelector('#cart__button');
