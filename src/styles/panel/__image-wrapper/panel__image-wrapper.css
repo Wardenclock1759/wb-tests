@@ -1,0 +1,4 @@
+.panel__image-wrapper {
+    display: flex;
+    gap: 8px;
+}

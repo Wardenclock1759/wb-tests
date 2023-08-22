@@ -1,0 +1,15 @@
+.floater {
+    position: absolute;
+    top: -15%;
+    right: -12%;
+    min-width: 8px;
+    padding: 0 4px;
+    border-radius: 16px;
+    background-color: #F55123;
+    color: #FFF;
+    text-align: center;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px; 
+}

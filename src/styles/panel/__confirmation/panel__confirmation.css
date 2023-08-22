@@ -1,0 +1,5 @@
+.panel__confirmation {
+    display: flex;
+    gap: 8px;
+    margin-top: 17px;
+}

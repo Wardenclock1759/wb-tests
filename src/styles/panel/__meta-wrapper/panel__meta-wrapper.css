@@ -1,0 +1,4 @@
+.panel__meta-wrapper {
+    display: flex;
+    gap: 8px;
+}

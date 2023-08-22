@@ -63,5 +63,22 @@
 @import url('../styles/card/__tooltip/__row/card__tooltip__row.css');
 @import url('../styles/absent/absent.css');
 @import url('../styles/absent/__title/absent__title.css');
+@import url('../styles/panel/panel.css');
+@import url('../styles/panel/__title-wrapper/panel__title-wrapper.css');
+@import url('../styles/panel/__title/panel__title.css');
+@import url('../styles/panel/__button/panel__button.css');
+@import url('../styles/panel/__info/panel__info.css');
+@import url('../styles/panel/__subtitle/panel__subtitle.css');
+@import url('../styles/panel/__content/panel__content.css');
+@import url('../styles/panel/__meta-wrapper/panel__meta-wrapper.css');
+@import url('../styles/panel/__subtext/panel__subtext.css');
+@import url('../styles/panel/__raiting-wrapper/panel__raiting-wrapper.css');
+@import url('../styles/panel/__text/panel__text.css');
+@import url('../styles/panel/__image/panel__image.css');
+@import url('../styles/panel/__image-wrapper/panel__image-wrapper.css');
+@import url('../styles/floater/floater.css');
+@import url('../styles/floater/__container/floater__container.css');
+@import url('../styles/panel/__confirmation/panel__confirmation.css');
+
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');
