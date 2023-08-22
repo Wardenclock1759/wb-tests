@@ -52,7 +52,7 @@
 .card__total{display:flex;flex-direction:column;gap:5px}@media screen and (max-width:720px){.card__total{align-items:center;flex-direction:row}}
 .card__currency{font-size:16px;font-weight:700;height:28px;line-height:27px;margin:0;text-align:right;width:35px}@media screen and (max-width:720px){.card__currency{align-content:center;height:20px;line-height:22px}}
 .card__price-new{font-size:20px;font-style:normal;font-weight:700;letter-spacing:-.4px;line-height:24px;margin:0;text-align:right}.card__price-new_small{font-size:16px;font-style:normal;line-height:27px}@media screen and (max-width:720px){.card__price-new{font-size:16px;letter-spacing:.4}}
-.card__price-old{align-self:flex-end;border-bottom:1px dashed;color:#a0a0a4;cursor:pointer;font-size:13px;font-weight:400;line-height:16px;margin:0;text-align:right;text-decoration:line-through;width:-moz-fit-content;width:fit-content}@media screen and (max-width:720px){.card__price-old{font-size:12px}}
+.card__price-old{align-self:flex-end;border-bottom:1px dashed;color:#a0a0a4;cursor:pointer;font-size:13px;font-weight:400;line-height:16px;margin:0;text-align:right;text-decoration:line-through;width:-moz-fit-content;width:fit-content}@media screen and (max-width:720px){.card__price-old{font-size:12px;line-height:20px}}
 .card__wrapper_mobile{display:flex;gap:16px;justify-content:space-between}
 .card__info-wrapper{width:192px}
 .card__data{background-color:#fff;border-radius:6px;bottom:0;display:none;font-size:14px;font-weight:400;height:22px;left:0;line-height:20px;margin-bottom:4px;margin-left:4px;position:absolute;text-align:center;width:22px}@media screen and (max-width:720px){.card__data{display:block}}
@@ -61,6 +61,24 @@
 .card__tooltip__text{font-size:13px;font-style:normal;font-weight:400;line-height:16px}.card__tooltip__text_grey{color:#a0a0a4}
 .card__price-wrapper{display:flex;justify-content:flex-end}
 .card__tooltip__row{display:flex;gap:auto;justify-content:space-between}
+.absent{display:flex;flex-direction:column;margin-top:40px}.card__list.card__list_absent{filter:grayscale(100%)}.card__list.card__list_absent .card__image{margin-left:0}.card__list.card__list_absent .card__info{align-self:flex-start;max-width:309px}.card__list.card__list_absent .card__icon-wrapper{margin-left:44px;margin-top:0}.card__list.card__list_absent .card__checkbox,.card__list.card__list_absent .card__company-wrapper,.card__list.card__list_absent .card__counter,.card__list.card__list_absent .card__seller,.card__list.card__list_absent .card__total,.card__list.card__list_absent .card__warning-wrapper{display:none}@media screen and (max-width:720px){.absent{gap:10px;margin-top:20px}.card__list.card__list_absent .card__icon{padding:5px}.card__list.card__list_absent .card__icon-wrapper{gap:12px}.card__list.card__list_absent .card__volume{justify-content:flex-end}}
+.absent__title{font-size:16px;font-style:normal;font-weight:600;line-height:24px;margin:0}
+.panel{background-color:#fff;border-radius:16px;margin-top:40px;padding:16px 24px 24px}
+.panel__title-wrapper{display:flex;gap:auto;justify-content:space-between}
+.panel__title{font-size:24px;font-style:normal;font-weight:700;letter-spacing:-.24px;line-height:32px;margin:0}
+.panel__button{background:none;border:none;color:#cb11ab;cursor:pointer;font-size:16px;font-style:normal;font-weight:700;line-height:24px;padding-top:7px}
+.panel__info{-moz-column-gap:32px;column-gap:32px;display:grid;grid-template-columns:153px 405px;margin-top:21px;row-gap:17px}
+.panel__subtitle{font-size:16px;font-style:normal;font-weight:600;line-height:22px}
+.panel__content{display:flex;flex-direction:column;gap:4px}
+.panel__meta-wrapper{display:flex;gap:8px}
+.panel__subtext{align-items:flex-end;font-size:13px;font-style:normal;font-weight:400;line-height:16px}.panel__subtext_active{border-bottom:1px dashed;color:#0cb477}
+.panel__raiting-wrapper{align-items:center;display:flex;gap:4px}
+.panel__text{font-size:16px;font-style:normal;font-weight:400;line-height:24px}
+.panel__image{border-radius:8px;height:56px;width:40px}
+.panel__image-wrapper{display:flex;gap:8px}
+.floater{background-color:#f55123;border-radius:16px;color:#fff;font-size:10px;font-style:normal;font-weight:600;line-height:18px;min-width:8px;padding:0 4px;position:absolute;right:-12%;text-align:center;top:-15%}
+.floater__container{position:relative}
+.panel__confirmation{display:flex;gap:8px;margin-top:17px}
 .footer{display:flex;justify-content:center;padding:24px 0}@media screen and (max-width:720px){.footer{padding-bottom:80px}}
 .footer__title{color:#fff;font-size:13px;font-weight:400;line-height:16px;opacity:.7}
 
