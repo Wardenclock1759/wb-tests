@@ -1,0 +1,45 @@
+.absent {
+    margin-top: 30px;
+}
+
+.card__list.card__list_absent {
+    filter: grayscale(100%);
+}
+
+.card__list.card__list_absent .card__image {
+    margin-left: 0;
+}
+
+.card__list.card__list_absent .card__info {
+    align-self: flex-start;
+    max-width: 309px;
+}
+
+.card__list.card__list_absent .card__icon-wrapper {
+    margin-left: 44px;
+    margin-top: 0px;
+}
+
+.card__list.card__list_absent .card__checkbox {
+    display: none;
+}
+
+.card__list.card__list_absent .card__seller {
+    display: none;
+}
+
+.card__list.card__list_absent .card__company-wrapper {
+    display: none;
+}
+
+.card__list.card__list_absent .card__counter {
+    display: none;
+}
+
+.card__list.card__list_absent .card__warning-wrapper {
+    display: none;
+}
+
+.card__list.card__list_absent .card__total {
+    display: none;
+}

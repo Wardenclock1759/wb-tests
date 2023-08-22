@@ -61,5 +61,7 @@
 @import url('../styles/card/__tooltip/__text/card__tooltip__text.css');
 @import url('../styles/card/__price-wrapper/card__price-wrapper.css');
 @import url('../styles/card/__tooltip/__row/card__tooltip__row.css');
+@import url('../styles/absent/absent.css');
+@import url('../styles/absent/__title/absent__title.css');
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');

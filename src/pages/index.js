@@ -10,7 +10,14 @@ const cardSection = new Section(
     (item, template) => {
       const cardElement = createCard(item, template);
       cardSection.addItem(cardElement);
-    }, ".card__list"
+    }, ".card__list_items"
+);
+
+const absentSection = new Section(
+    (item, template) => {
+      const cardElement = createCard(item, template);
+      absentSection.addItem(cardElement);
+    }, ".card__list_absent"
 );
 
 function createCard(cardData, template) {
@@ -31,22 +38,40 @@ if (!isDefaultScreen) {
 }
 
 cardSection.renderItems(data, cardTemplate);
+absentSection.renderItems(data, cardTemplate);
 
-const button = document.querySelector('.cart__button');
-const container = document.querySelector('.card__list');
-const containerHeight = container.clientHeight;
-container.style.height = `${containerHeight}px`;
+const cartButton = document.querySelector('#cart__button');
+const itemContainer = document.querySelector('.card__list_items');
+const itemContainerHeight = itemContainer.clientHeight;
+itemContainer.style.height = `${itemContainerHeight}px`;
 
-button.addEventListener('click', () => {
-    if (container.classList.contains('card__list_opened')) {
-        container.classList.remove('card__list_opened');
-        button.classList.add('cart__button_opened');
-        container.style.height = 0;
+const absentButton = document.querySelector('#absent__button');
+const absentContainer = document.querySelector('.card__list_absent');
+const absentContainerHeight = absentContainer.clientHeight;
+absentContainer.style.height = `${absentContainerHeight}px`;
+
+cartButton.addEventListener('click', () => {
+    if (itemContainer.classList.contains('card__list_opened')) {
+        itemContainer.classList.remove('card__list_opened');
+        cartButton.classList.add('cart__button_opened');
+        itemContainer.style.height = 0;
         return;
     }
-    container.classList.add('card__list_opened');
-    button.classList.remove('cart__button_opened');
-    container.style.height = `${containerHeight}px`;    
+    itemContainer.classList.add('card__list_opened');
+    cartButton.classList.remove('cart__button_opened');
+    itemContainer.style.height = `${itemContainerHeight}px`;    
+});
+
+absentButton.addEventListener('click', () => {
+    if (absentContainer.classList.contains('card__list_opened')) {
+        absentContainer.classList.remove('card__list_opened');
+        absentButton.classList.add('cart__button_opened');
+        absentContainer.style.height = 0;
+        return;
+    }
+    absentContainer.classList.add('card__list_opened');
+    absentButton.classList.remove('cart__button_opened');
+    absentContainer.style.height = `${absentContainerHeight}px`;    
 });
 
 const newPrice = document.querySelectorAll('.card__price-new');
