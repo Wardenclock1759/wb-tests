@@ -9,3 +9,9 @@
     color: #CB11AB;
     cursor: pointer;
 }
+
+@media screen and (max-width: 720px) {
+    .panel__button {
+        padding: 0;
+    }
+}

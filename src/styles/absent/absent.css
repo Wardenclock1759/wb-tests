@@ -1,5 +1,5 @@
 .absent {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
@@ -53,7 +53,7 @@
 @media screen and (max-width: 720px) {
     .absent {
         margin-top: 20px;
-        gap: 10px
+        padding: 0 16px;
     }
 
     .card__list.card__list_absent .card__icon {
@@ -63,7 +63,6 @@
     .card__list.card__list_absent .card__icon-wrapper {
         gap: 12px;
     }
-
 
     .card__list.card__list_absent .card__volume {
         justify-content: flex-end;

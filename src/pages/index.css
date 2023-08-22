@@ -81,6 +81,7 @@
 @import url('../styles/panel/__confirmation/panel__confirmation.css');
 @import url('../styles/panel/__tooltip/panel__tooltip.css');
 @import url('../styles/panel/__confirmation-wrapper/panel__confirmation-wrapper.css');
+@import url('../styles/panel/__point/panel__point.css');
 
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');

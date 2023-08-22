@@ -21,11 +21,12 @@
 }
 
 .card__tooltip_delivery {
-    bottom: -350%;
-    left: 50%;
+    bottom: -150%;
+    left: 40%;
     width: 288px;
-    box-sizing: border-box;
+    margin-left: -144px;
     padding: 10px 16px 14px;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 .card__tooltip_price {
@@ -48,12 +49,14 @@
     bottom: 125%;
 }
 
-.panel__tooltip:hover .card__tooltip {
-    visibility: visible;
-    animation: fadeIn 1s;
-}
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@media screen and (min-width: 720px) {
+    .panel__tooltip:hover .card__tooltip {
+        visibility: visible;
+        animation: fadeIn 1s;
+    }
 }

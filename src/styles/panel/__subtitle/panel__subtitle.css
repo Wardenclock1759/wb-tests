@@ -4,3 +4,17 @@
     font-weight: 600;
     line-height: 22px;
 }
+
+@media screen and (max-width: 720px) {
+    .panel__subtitle {
+        margin-top: 18px;
+    }
+
+    .panel__subtitle:first-child {
+        margin-top: 0;
+    }
+
+    .panel__subtitle:last-child {
+        margin-top: 30px;
+    }
+}

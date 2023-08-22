@@ -103,10 +103,12 @@ function initDelivery() {
 const cartButton = document.querySelector('#cart__button');
 const itemContainer = document.querySelector('.card__list_items');
 const itemContainerHeight = itemContainer.clientHeight;
+itemContainer.style.height = `${itemContainerHeight}px`;
 
 const absentButton = document.querySelector('#absent__button');
 const absentContainer = document.querySelector('.card__list_absent');
 const absentContainerHeight = absentContainer.clientHeight;
+absentContainer.style.height = `${absentContainerHeight}px`;
 
 cartButton.addEventListener('click', () => {
   if (itemContainer.classList.contains('card__list_opened')) {

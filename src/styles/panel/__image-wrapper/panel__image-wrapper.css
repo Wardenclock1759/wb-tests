@@ -2,3 +2,10 @@
     display: flex;
     gap: 8px;
 }
+
+@media screen and (max-width: 720px) {
+    .panel__image-wrapper {
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+}

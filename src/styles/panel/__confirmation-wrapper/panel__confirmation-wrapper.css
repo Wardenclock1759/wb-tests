@@ -1,5 +1,11 @@
 .panel__confirmation-wrapper {
     display: flex;
-    align-items: center;
+    height: fit-content;
     gap: 4px;
+}
+
+@media screen and (max-width: 720px) {
+    .panel__confirmation-wrapper {
+        display: flex;
+    }
 }
