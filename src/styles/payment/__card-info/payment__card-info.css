@@ -1,0 +1,4 @@
+.payment__card-info {
+    display: flex;
+    gap: 13px;
+}

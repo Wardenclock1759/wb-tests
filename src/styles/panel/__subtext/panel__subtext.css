@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.panel__subtext_gray {
+    color: #A0A0A4;
+}
+
 @media screen and (max-width: 720px) {
     .panel__subtext {
         margin-top: 0;
