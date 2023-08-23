@@ -6,6 +6,6 @@
 
 @media screen and (max-width: 720px) {
     .panel__confirmation {
-        margin: 15px 8px;
+        margin: 15px 8px 0;
     }
 }
