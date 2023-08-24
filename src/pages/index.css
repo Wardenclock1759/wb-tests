@@ -92,6 +92,19 @@
 @import url('../styles/form/__input-wrapper/form__input-wrapper.css');
 @import url('../styles/form/__line/form__line.css');
 @import url('../styles/form/__error/form__error.css');
+@import url('../styles/total/total.css');
+@import url('../styles/total/total__title-wrapper/total__title-wrapper.css');
+@import url('../styles/total/__title/total__title.css');
+@import url('../styles/total/__subtitle/total__subtitle.css');
+@import url('../styles/total/__subtitle-wrapper/total__subtitle-wrapper.css');
+@import url('../styles/total/__section/total__section.css');
+@import url('../styles/total/__button/total__button.css');
+@import url('../styles/total/__text/total__text.css');
+@import url('../styles/total/__delivery/total__delivery.css');
+@import url('../styles/total/__checkbox/total__checkbox.css');
+@import url('../styles/confirm/confirm.css');
+@import url('../styles/confirm/__wrapper/confirm__wrapper.css');
+@import url('../styles/total/__info/total__info.css');
 
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');

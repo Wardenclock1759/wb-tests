@@ -1,0 +1,21 @@
+.total__title {
+    margin: 0;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+}
+
+.total__title_currency {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px; 
+}
+
+.total__title_small {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+}
+

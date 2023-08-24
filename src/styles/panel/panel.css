@@ -15,6 +15,14 @@
     margin-top: 14px;
 }
 
+.panel_total {
+    margin: 0;
+    width: 303px;
+    padding-bottom: 24px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15); 
+}
+
 @media screen and (max-width: 720px) {
     .panel {
         padding: 16px 16px 22px;
@@ -29,3 +37,9 @@
         margin-top: 14px;
     }
 }
+
+@media screen and (min-width: 1400px) {
+    .panel_total {
+        width: 429px;
+    }
+} 

@@ -1,0 +1,5 @@
+.total__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: auto;
+}

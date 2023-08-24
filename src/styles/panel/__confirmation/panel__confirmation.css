@@ -4,6 +4,13 @@
     margin-top: 17px;
 }
 
+.panel__confirmation_total {
+    margin-top: 0;
+    padding: 6px 8px 12px;
+    border-radius: 8px;
+    background-color: #F6F6FA;
+    align-items: center;
+}
 @media screen and (max-width: 720px) {
     .panel__confirmation {
         margin: 15px 8px 0;

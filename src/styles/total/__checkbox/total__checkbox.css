@@ -1,0 +1,16 @@
+.total__checkbox {
+    padding: 0;
+    background: none;
+    border: none;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.total__checkbox_hidden {
+    display: none;
+}
+
+.total__checkbox svg rect {
+    fill: #F6F6FA;
+}
