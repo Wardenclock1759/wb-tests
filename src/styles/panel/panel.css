@@ -10,6 +10,11 @@
     padding-bottom: 25px;
 }
 
+.panel_form {
+    padding-top: 18px;
+    margin-top: 14px;
+}
+
 @media screen and (max-width: 720px) {
     .panel {
         padding: 16px 16px 22px;
@@ -18,5 +23,9 @@
 
     .panel_card {
         margin-top: 11px;
+    }
+
+    .panel_form {
+        margin-top: 14px;
     }
 }

@@ -166,3 +166,22 @@ cartCheckbox.addEventListener('click', () => {
 });
 
 initDelivery();
+
+const formInputs = document.querySelectorAll('.form__input-wrapper');
+formInputs.forEach((formInput) => {
+  const input = formInput.querySelector('.form__input');
+  const label = formInput.querySelector('.form__label');
+  
+  input.addEventListener('blur', () => {
+    if (input.value === '') {
+      label.classList.add('form__label_hidden');
+    }
+  });
+  input.addEventListener('input', () => {
+    if (input.value !== '') {
+      label.classList.remove('form__label_hidden');
+    } else {
+      label.classList.add('form__label_hidden');
+    }
+  })
+});

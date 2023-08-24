@@ -1,0 +1,12 @@
+.form__error {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    margin-top: 4px;
+}
+
+.form__error_hidden {
+    visibility: hidden;
+}

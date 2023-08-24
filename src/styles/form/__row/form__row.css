@@ -1,0 +1,11 @@
+.form__row {
+    display: flex;
+    gap: 24px;
+}
+
+@media screen and (max-width: 720px) {
+    .form__row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

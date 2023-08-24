@@ -85,6 +85,13 @@
 @import url('../styles/payment/payment.css');
 @import url('../styles/payment/__card-info/payment__card-info.css');
 @import url('../styles/payment/__image/payment__image.css');
+@import url('../styles/form/form.css');
+@import url('../styles/form/__label/form__label.css');
+@import url('../styles/form/__input/form__input.css');
+@import url('../styles/form/__row/form__row.css');
+@import url('../styles/form/__input-wrapper/form__input-wrapper.css');
+@import url('../styles/form/__line/form__line.css');
+@import url('../styles/form/__error/form__error.css');
 
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');

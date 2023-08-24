@@ -1,0 +1,18 @@
+.form__label {
+    color: #A0A0A4;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.form__label_hidden {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 720px) {
+    .form__label {
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
