@@ -11,8 +11,14 @@
     background-color: #F6F6FA;
     align-items: center;
 }
+
 @media screen and (max-width: 720px) {
     .panel__confirmation {
         margin: 15px 8px 0;
+    }
+
+    .panel__confirmation_total {
+        margin: 0;
+        padding-top: 9px;
     }
 }

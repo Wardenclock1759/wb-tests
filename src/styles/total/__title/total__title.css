@@ -19,3 +19,10 @@
     letter-spacing: 0;
 }
 
+@media screen and (max-width: 720px) {
+    .total__title {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -0.2px; 
+    }
+}

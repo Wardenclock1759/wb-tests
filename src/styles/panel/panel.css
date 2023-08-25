@@ -36,6 +36,14 @@
     .panel_form {
         margin-top: 14px;
     }
+
+    .panel_total {
+        width: 320px;
+        background: none;
+        box-shadow: none;
+        margin-top: 16px;
+        padding: 8px 16px 24px;
+    }
 }
 
 @media screen and (min-width: 1400px) {

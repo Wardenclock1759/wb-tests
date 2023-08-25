@@ -5,3 +5,9 @@
     flex-direction: column;
     margin-top: 12px;
 }
+
+@media screen and (max-width: 720px) {
+    .main__wrapper {
+        margin-top: 0;
+    }
+}

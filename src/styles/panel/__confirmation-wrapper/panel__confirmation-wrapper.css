@@ -12,6 +12,10 @@
     .panel__confirmation-wrapper {
         display: flex;
     }
+
+    .panel__confirmation-wrapper_total {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1400px) {

@@ -4,3 +4,21 @@
     flex-direction: column;
     gap: 12px;
 }
+
+@media screen and (max-width: 720px) {
+    .total__section .total__delivery {
+        display: none;
+    }
+
+    .total__section .total__card {
+        display: none;
+    }
+
+    .total__section {
+        margin-top: 16px;
+    }
+
+    .total__section_submit {
+        margin-top: 23px;
+    }
+}

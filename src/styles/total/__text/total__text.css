@@ -22,9 +22,14 @@
     font-size: 14px;
 }
 
+@media screen and (max-width: 720px) {
+    .total__text_fixed {
+        width: 267px;
+    }
+}
+
 @media screen and (min-width: 1400px) {
     .total__text_fixed {
         width: 360px;
-        font-size: 14px;
     }
 }
