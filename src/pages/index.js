@@ -47,6 +47,10 @@ function initiateTotal() {
   newValue.textContent = prettify(totalNew);
   newValue.append(currency);
 
+  if (checkPayment()) {
+    submitButton.textContent = `Оплатить ${document.querySelector('#total__new__value').textContent}`;
+  } 
+
   document.querySelector('#total__item__value').textContent = `${itemCount} товара`;
   document.querySelector('#total__old__value').textContent = `${prettify(totalOld)} сом`;
   document.querySelector('#total__discount__value').textContent = `−${prettify(totalOld - totalNew)} сом`;
@@ -454,6 +458,36 @@ function parseStore(object) {
 
   deliveryTextContainer.append(shop);
 }
+
+const totalCheckbox = document.querySelector('#checkbox__total');
+const totalcheckboxUnchecked = document.querySelector('.total__checkbox_unchecked');
+const totalcheckboxChecked = document.querySelector('.total__checkbox_checked');
+const optionalString = document.querySelector('#total__options');
+let cardPayment = false;
+
+function checkPayment() {
+  return cardPayment;
+}
+
+function handleTotalCheckboxClick() {
+  if (totalcheckboxChecked.classList.contains('total__checkbox_hidden')) {
+    totalcheckboxChecked.classList.remove('total__checkbox_hidden');
+    totalcheckboxUnchecked.classList.add('total__checkbox_hidden');
+    
+    optionalString.classList.add('total__checkbox_hidden');
+    submitButton.textContent = `Оплатить ${document.querySelector('#total__new__value').textContent}`;
+    cardPayment = true;
+  } else {
+    totalcheckboxChecked.classList.add('total__checkbox_hidden');
+    totalcheckboxUnchecked.classList.remove('total__checkbox_hidden');
+
+    optionalString.classList.remove('total__checkbox_hidden');
+    submitButton.textContent = 'Заказать';
+    cardPayment = false;
+  }
+}
+
+totalCheckbox.addEventListener('click', handleTotalCheckboxClick);
 
 deliveryPopupOpenPanel.addEventListener('click', openDeliveryPopup);
 deliveryPopupOpenTotal.addEventListener('click', openDeliveryPopup);
