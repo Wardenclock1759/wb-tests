@@ -8,6 +8,10 @@
     line-height: 24px;
 }
 
+.form__input_active {
+    color: #F55123;
+}
+
 .form__input:focus {
     outline: none;
 }

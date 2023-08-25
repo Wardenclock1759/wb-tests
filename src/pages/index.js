@@ -119,40 +119,110 @@ function initDelivery() {
     }
   });
 
-    const cartButton = document.querySelector('#header__cartButton');
-    const cartButtonSmall = document.querySelector('#tabbar__cartButton');
-    let floater = document.createElement('div');
-    floater.classList.add('floater');
-    floater.classList.add('floater_cart');
-    floater.textContent = itemCount;
-    cartButton.append(floater);
-    floater = document.createElement('div');
-    floater.classList.add('floater');
-    floater.classList.add('floater_cart_small');
-    floater.textContent = itemCount;
-    cartButtonSmall.append(floater);
+  const cartButton = document.querySelector('#header__cartButton');
+  const cartButtonSmall = document.querySelector('#tabbar__cartButton');
+  let floater = document.createElement('div');
+  floater.classList.add('floater');
+  floater.classList.add('floater_cart');
+  floater.textContent = itemCount;
+  cartButton.append(floater);
+  floater = document.createElement('div');
+  floater.classList.add('floater');
+  floater.classList.add('floater_cart_small');
+  floater.textContent = itemCount;
+  cartButtonSmall.append(floater);
 }
 
 function initForm() {
+  const inputStates = {};
+  for (const input of document.querySelectorAll('.form__input')) {
+    inputStates[input.id] = {
+      valid: true
+    };
+  }
+
+  const config = {
+    mail: '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$',
+    phone: '\\+7\\d{10}',
+    number: '\\d{14}',
+  };
+
+  const messagesContent = {
+    mail: 'Проверьте адрес электронной почты',
+    phone: 'Формат: +9 999 999 99 99',
+    number: 'Проверьте ИНН',
+  };
+
+  const messagesRequired = {
+    name: 'Укажите имя',
+    surname: 'Введите фамилию',
+    mail: 'Укажите электронную почту',
+    phone: 'Укажите номер телефона',
+    number: 'Укажите ИНН',
+  };
+
+  function getValidationString(id) {
+    return config[id];
+  }
+
   const formInputs = document.querySelectorAll('.form__input-wrapper');
   formInputs.forEach((formInput) => {
     const input = formInput.querySelector('.form__input');
     const label = formInput.querySelector('.form__label');
+    const validationString = getValidationString(input.id);
 
     if (input.value !== '') {
       label.classList.remove('form__label_hidden');
     }
+
+    if (input.id === 'phone') {
+      input.addEventListener('keydown', (event) => {
+        const isLetterKey = event.keyCode >= 65 && event.keyCode <= 90;
+      
+        if (isLetterKey) {
+          event.preventDefault();
+        }
+      });
+    }    
     
     input.addEventListener('blur', () => {
       if (input.value === '') {
         label.classList.add('form__label_hidden');
-      }
+      } else {
+        if (validationString) {
+          const regex = new RegExp(validationString);
+          if (!regex.test(input.value)) {
+            const errorField = formInput.querySelector(`#${input.id}_error`);
+            errorField.textContent = messagesContent[input.id];
+            errorField.classList.remove('form__error_hidden');
+            errorField.classList.add('form__error_active');
+            formInput.querySelector('.form__line').classList.add('form__line_active');
+            input.classList.add('form__input_active');
+            inputStates[input.id].valid = false;
+          }
+        }
+      }      
     });
+
     input.addEventListener('input', () => {
       if (input.value !== '') {
         label.classList.remove('form__label_hidden');
       } else {
         label.classList.add('form__label_hidden');
+      }
+
+      if (validationString && !inputStates[input.id].valid) {
+        const regex = new RegExp(validationString);
+        console.log(regex.test(input.value))
+        if (regex.test(input.value)) {
+          const errorField = formInput.querySelector(`#${input.id}_error`);
+          errorField.textContent = messagesContent[input.id];
+          errorField.classList.add('form__error_hidden');
+          errorField.classList.remove('form__error_active');
+          formInput.querySelector('.form__line').classList.remove('form__line_active');
+          input.classList.remove('form__input_active');
+          inputStates[input.id].valid = true;
+        }
       }
     })
   });

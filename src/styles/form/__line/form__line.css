@@ -3,3 +3,7 @@
     opacity: 0.2;
     margin-top: 3px;
 }
+
+.form__line_active {
+    border-bottom: 2px solid #F55123;
+}

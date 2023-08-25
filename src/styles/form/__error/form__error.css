@@ -10,3 +10,7 @@
 .form__error_hidden {
     visibility: hidden;
 }
+
+.form__error_active {
+    color: #F55123;
+}
