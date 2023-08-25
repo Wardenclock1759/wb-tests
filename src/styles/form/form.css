@@ -12,3 +12,9 @@
         gap: 11px;
     }
 }
+
+@media screen and (min-width: 1400px) {
+    .form {
+        max-width: 700px;
+    }
+}

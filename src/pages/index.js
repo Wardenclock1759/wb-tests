@@ -39,28 +39,28 @@ function initiateTotal() {
 }
 
 const cardSection = new Section(
-    (item, template) => {
-      const cardElement = createCard(item, template);
-      cardSection.addItem(cardElement);
-    }, ".card__list_items"
+  (item, template) => {
+    const cardElement = createCard(item, template);
+    cardSection.addItem(cardElement);
+  }, ".card__list_items"
 );
 
 const absentSection = new Section(
-    (item, template) => {
-      const cardElement = createCard(item, template, false);
-      absentSection.addItem(cardElement);
-    }, ".card__list_absent"
+  (item, template) => {
+    const cardElement = createCard(item, template, false);
+    absentSection.addItem(cardElement);
+  }, ".card__list_absent"
 );
 
 function createCard(cardData, template, absent = true) {
-    const card = new Card(
-      cardData,
-      template,
-      initiateTotal
-    );
-    const newCard = card.generateCard();
-    if (absent) cards.push(card);
-    return newCard;
+  const card = new Card(
+    cardData,
+    template,
+    initiateTotal
+  );
+  const newCard = card.generateCard();
+  if (absent) cards.push(card);
+  return newCard;
 }
 
 let isDefaultScreen = screen.width > 720;
@@ -73,51 +73,51 @@ const firstRowDelivery = document.querySelector('#panel__content__date_primary')
 const secondRowDelivery = document.querySelector('#panel__content__date_secondary');
 
 function initDelivery() {
-    const limit = 184;
-    let itemCount = 0;
-    cards.forEach((card) => {
-        const count = card._counterValue;
-        itemCount += count;
+  const limit = 184;
+  let itemCount = 0;
+  cards.forEach((card) => {
+    const count = card._counterValue;
+    itemCount += count;
 
-        const container = document.createElement('div');
-        container.classList.add('floater__container');
-        const floater = document.createElement('div');
-        floater.classList.add('floater');
-        const img = document.createElement('img');
-        img.classList.add('panel__image');
-        img.src = card._image;
-        img.alt = "Изображение: " + card._title;
-        container.append(img);
+    const container = document.createElement('div');
+    container.classList.add('floater__container');
+    const floater = document.createElement('div');
+    floater.classList.add('floater');
+    const img = document.createElement('img');
+    img.classList.add('panel__image');
+    img.src = card._image;
+    img.alt = "Изображение: " + card._title;
+    container.append(img);
 
-        if (count <= 1) {
-            firstRowDelivery.append(container);
-        } else if (count <= limit) {
-            floater.textContent = count;
-            container.append(floater);
-            firstRowDelivery.append(container);
-        } else {
-            const secondRowCount = count - limit;
+    if (count <= 1) {
+      firstRowDelivery.append(container);
+    } else if (count <= limit) {
+      floater.textContent = count;
+      container.append(floater);
+      firstRowDelivery.append(container);
+    } else {
+      const secondRowCount = count - limit;
 
-            floater.textContent = limit;
-            container.append(floater);
-            firstRowDelivery.append(container);
+      floater.textContent = limit;
+      container.append(floater);
+      firstRowDelivery.append(container);
 
-            const secondRowContainer = document.createElement('div');
-            secondRowContainer.classList.add('floater__container');
+      const secondRowContainer = document.createElement('div');
+      secondRowContainer.classList.add('floater__container');
 
-            const secondRowFloater = document.createElement('div');
-            secondRowFloater.classList.add('floater');
-            secondRowFloater.textContent = secondRowCount;
-            secondRowContainer.append(secondRowFloater);
+      const secondRowFloater = document.createElement('div');
+      secondRowFloater.classList.add('floater');
+      secondRowFloater.textContent = secondRowCount;
+      secondRowContainer.append(secondRowFloater);
 
-            const img = document.createElement('img');
-            img.classList.add('panel__image');
-            img.src = card._image;
-            img.alt = "Изображение: " + card._title;
-            secondRowContainer.append(img);
-            secondRowDelivery.append(secondRowContainer);
-        }
-    });
+      const img = document.createElement('img');
+      img.classList.add('panel__image');
+      img.src = card._image;
+      img.alt = "Изображение: " + card._title;
+      secondRowContainer.append(img);
+      secondRowDelivery.append(secondRowContainer);
+    }
+  });
 
     const cartButton = document.querySelector('#header__cartButton');
     const cartButtonSmall = document.querySelector('#tabbar__cartButton');
