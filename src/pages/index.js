@@ -349,7 +349,10 @@ function closeDeliveryPopup() {
 const deliverySubmitButton = document.querySelector('#delivery__submit');
 const deliveryCloseButton = document.querySelector('#delivery__close');
 deliveryCloseButton.addEventListener('click', closeDeliveryPopup);
-deliverySubmitButton.addEventListener('click', closeDeliveryPopup);
+deliverySubmitButton.addEventListener('click', () => {
+  deliveryPopupSubmit();
+  closeDeliveryPopup();
+});
 
 const deliveryTabButton1 = document.querySelector('#delivery_tab1');
 const deliveryTabButton2 = document.querySelector('#delivery_tab2');
@@ -384,13 +387,6 @@ function openDeliveryPopup() {
   deliveryPopup.classList.add('popup_opened');
 }
 
-deliveryPopupOpenPanel.addEventListener('click', openDeliveryPopup);
-deliveryPopupOpenTotal.addEventListener('click', openDeliveryPopup);
-
-initDelivery();
-initForm();
-initiateTotal();
-
 const tabs = document.querySelector('#delivery__popup').querySelectorAll('.popup__tab-content');
 
 tabs.forEach((tab) => {
@@ -413,3 +409,55 @@ tabs.forEach((tab) => {
     });
   }
 });
+
+function deliveryPopupSubmit() {
+  const activeTab = document.querySelector('#delivery__popup').querySelector('.popup__tab-content_active');
+  let value = {};
+
+  const items = activeTab.querySelectorAll('.popup__item');
+  items.forEach((item) => {
+    const checkbox = item.querySelector('.popup__checkbox');
+    if (checkbox.classList.contains('popup__checkbox_checked')) {
+      value = item;
+    }
+  });
+
+  if (value.classList.contains('popup__item_adress')) {
+    parseAdress(value);
+  } else {
+    parseStore(value);
+  }
+}
+
+function parseAdress(object) {
+  const adress = object.querySelector('.popup__text').textContent;
+  const deliveryTextContainer = document.querySelector('.panel__content');
+  deliveryTextContainer.innerHTML = '';
+  const newAdress = document.createElement('span');
+  newAdress.textContent = adress;
+  newAdress.classList.add('panel__content');
+  deliveryTextContainer.append(newAdress);
+}
+
+function parseStore(object) {
+  const adress = object.querySelector('.popup__text').textContent;
+  const raiting = object.querySelector('.panel__subtext').textContent;
+
+  const shop = document.querySelector('#shop-template').content.querySelector('.shop').cloneNode(true);
+  const deliveryTextContainer = document.querySelector('.panel__content');
+  deliveryTextContainer.innerHTML = '';
+  console.log(shop)
+  const addressContainer = shop.querySelector('.panel__point');
+  const raitingContainer = shop.querySelector('.panel__subtext');
+  addressContainer.textContent = adress;
+  raitingContainer.textContent = raiting;
+
+  deliveryTextContainer.append(shop);
+}
+
+deliveryPopupOpenPanel.addEventListener('click', openDeliveryPopup);
+deliveryPopupOpenTotal.addEventListener('click', openDeliveryPopup);
+
+initDelivery();
+initForm();
+initiateTotal();
