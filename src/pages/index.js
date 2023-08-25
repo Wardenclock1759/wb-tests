@@ -133,33 +133,34 @@ function initDelivery() {
   cartButtonSmall.append(floater);
 }
 
+const inputStates = {};
+for (const input of document.querySelectorAll('.form__input')) {
+  inputStates[input.id] = {
+    valid: false
+  };
+}
+
+const config = {
+  mail: '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$',
+  phone: '\\+7\\d{10}',
+  number: '^\\d{14}$',
+};
+
+const messagesContent = {
+  mail: 'Проверьте адрес электронной почты',
+  phone: 'Формат: +9 999 999 99 99',
+  number: 'Проверьте ИНН',
+};
+
+const messagesRequired = {
+  name: 'Укажите имя',
+  surname: 'Введите фамилию',
+  mail: 'Укажите электронную почту',
+  phone: 'Укажите номер телефона',
+  number: 'Укажите ИНН',
+};
+
 function initForm() {
-  const inputStates = {};
-  for (const input of document.querySelectorAll('.form__input')) {
-    inputStates[input.id] = {
-      valid: true
-    };
-  }
-
-  const config = {
-    mail: '^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$',
-    phone: '\\+7\\d{10}',
-    number: '\\d{14}',
-  };
-
-  const messagesContent = {
-    mail: 'Проверьте адрес электронной почты',
-    phone: 'Формат: +9 999 999 99 99',
-    number: 'Проверьте ИНН',
-  };
-
-  const messagesRequired = {
-    name: 'Укажите имя',
-    surname: 'Введите фамилию',
-    mail: 'Укажите электронную почту',
-    phone: 'Укажите номер телефона',
-    number: 'Укажите ИНН',
-  };
 
   function getValidationString(id) {
     return config[id];
@@ -186,13 +187,13 @@ function initForm() {
     }    
     
     input.addEventListener('blur', () => {
+      const errorField = formInput.querySelector(`#${input.id}_error`);
       if (input.value === '') {
         label.classList.add('form__label_hidden');
       } else {
         if (validationString) {
           const regex = new RegExp(validationString);
           if (!regex.test(input.value)) {
-            const errorField = formInput.querySelector(`#${input.id}_error`);
             errorField.textContent = messagesContent[input.id];
             errorField.classList.remove('form__error_hidden');
             errorField.classList.add('form__error_active');
@@ -200,6 +201,12 @@ function initForm() {
             input.classList.add('form__input_active');
             inputStates[input.id].valid = false;
           }
+        } else {
+          errorField.classList.add('form__error_hidden');
+          errorField.classList.remove('form__error_active');
+          formInput.querySelector('.form__line').classList.remove('form__line_active');
+          input.classList.remove('form__input_active');
+          inputStates[input.id].valid = true;
         }
       }      
     });
@@ -213,14 +220,30 @@ function initForm() {
 
       if (validationString && !inputStates[input.id].valid) {
         const regex = new RegExp(validationString);
-        if (regex.test(input.value)) {
+        if (regex.test(input.value) || input.value === '') {
           const errorField = formInput.querySelector(`#${input.id}_error`);
-          errorField.textContent = messagesContent[input.id];
           errorField.classList.add('form__error_hidden');
           errorField.classList.remove('form__error_active');
           formInput.querySelector('.form__line').classList.remove('form__line_active');
           input.classList.remove('form__input_active');
           inputStates[input.id].valid = true;
+
+          if (input.id === 'number') {
+            errorField.classList.remove('form__error_hidden');
+            errorField.textContent = 'Для таможенного оформления';
+          }
+        }
+      }
+
+      if (!validationString) {
+        if (input.value === '') inputStates[input.id].valid = false;
+        else {
+          inputStates[input.id].valid = true;
+          const errorField = formInput.querySelector(`#${input.id}_error`);
+          errorField.classList.add('form__error_hidden');
+          errorField.classList.remove('form__error_active');
+          formInput.querySelector('.form__line').classList.remove('form__line_active');
+          input.classList.remove('form__input_active');
         }
       }
     })
@@ -292,6 +315,31 @@ cartCheckbox.addEventListener('click', () => {
     });
   }
 });
+
+function checkForm() {
+  const formInputs = document.querySelectorAll('.form__input-wrapper');
+  let formIsValid = 0;
+  formInputs.forEach((formInput) => {
+    const input = formInput.querySelector('.form__input');
+    const isValid = inputStates[input.id].valid;
+    formIsValid += !isValid;
+    if (!isValid) {
+      if (input.value === '') {
+        const errorField = formInput.querySelector(`#${input.id}_error`);
+        errorField.textContent = messagesRequired[input.id];
+        errorField.classList.remove('form__error_hidden');
+        errorField.classList.add('form__error_active');
+        formInput.querySelector('.form__line').classList.add('form__line_active');
+        input.classList.add('form__input_active');
+      }
+    }
+  });
+  if (formIsValid === 0) {
+    console.log('Отправка формы');
+  }
+}
+const submitButton = document.querySelector('#submitButton');
+submitButton.addEventListener('click', checkForm);
 
 initDelivery();
 initForm();
