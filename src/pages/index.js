@@ -6,6 +6,20 @@ const data = require('../data.json');
 
 const cards = [];
 
+const cardSection = new Section(
+  (item, template) => {
+    const cardElement = createCard(item, template);
+    cardSection.addItem(cardElement);
+  }, ".card__list_items"
+);
+
+const absentSection = new Section(
+  (item, template) => {
+    const cardElement = createCard(item, template, false);
+    absentSection.addItem(cardElement);
+  }, ".card__list_absent"
+);
+
 function prettify(number) {
   if (number < 1000) {
     return number;
@@ -37,20 +51,6 @@ function initiateTotal() {
   document.querySelector('#total__old__value').textContent = `${prettify(totalOld)} сом`;
   document.querySelector('#total__discount__value').textContent = `−${prettify(totalOld - totalNew)} сом`;
 }
-
-const cardSection = new Section(
-  (item, template) => {
-    const cardElement = createCard(item, template);
-    cardSection.addItem(cardElement);
-  }, ".card__list_items"
-);
-
-const absentSection = new Section(
-  (item, template) => {
-    const cardElement = createCard(item, template, false);
-    absentSection.addItem(cardElement);
-  }, ".card__list_absent"
-);
 
 function createCard(cardData, template, absent = true) {
   const card = new Card(
@@ -341,6 +341,75 @@ function checkForm() {
 const submitButton = document.querySelector('#submitButton');
 submitButton.addEventListener('click', checkForm);
 
+function closeDeliveryPopup() {
+  const deliveryPopup = document.querySelector('#delivery__popup');
+  deliveryPopup.classList.remove('popup_opened');
+}
+
+const deliverySubmitButton = document.querySelector('#delivery__submit');
+const deliveryCloseButton = document.querySelector('#delivery__close');
+deliveryCloseButton.addEventListener('click', closeDeliveryPopup);
+deliverySubmitButton.addEventListener('click', closeDeliveryPopup);
+
+const deliveryTabButton1 = document.querySelector('#delivery_tab1');
+const deliveryTabButton2 = document.querySelector('#delivery_tab2');
+const deliveryTab1 = document.querySelector('#deliveryTab1');
+const deliveryTab2 = document.querySelector('#deliveryTab2');
+
+deliveryTabButton1.addEventListener('click', () => {
+  if (!deliveryTabButton1.classList.contains('popup__tab-btn_active')) {
+    deliveryTabButton1.classList.add('popup__tab-btn_active');
+    deliveryTabButton2.classList.remove('popup__tab-btn_active');
+    
+    deliveryTab1.classList.add('popup__tab-content_active');
+    deliveryTab2.classList.remove('popup__tab-content_active');
+  }
+});
+
+deliveryTabButton2.addEventListener('click', () => {
+  if (!deliveryTabButton2.classList.contains('popup__tab-btn_active')) {
+    deliveryTabButton2.classList.add('popup__tab-btn_active');
+    deliveryTabButton1.classList.remove('popup__tab-btn_active');
+    
+    deliveryTab2.classList.add('popup__tab-content_active');
+    deliveryTab1.classList.remove('popup__tab-content_active');
+  }
+});
+
+const deliveryPopupOpenPanel = document.querySelector('#panel__delivery__popup');
+const deliveryPopupOpenTotal = document.querySelector('#total__delivery__popup');
+
+function openDeliveryPopup() {
+  const deliveryPopup = document.querySelector('#delivery__popup');
+  deliveryPopup.classList.add('popup_opened');
+}
+
+deliveryPopupOpenPanel.addEventListener('click', openDeliveryPopup);
+deliveryPopupOpenTotal.addEventListener('click', openDeliveryPopup);
+
 initDelivery();
 initForm();
 initiateTotal();
+
+const tabs = document.querySelector('#delivery__popup').querySelectorAll('.popup__tab-content');
+
+tabs.forEach((tab) => {
+  const buttons = tab.querySelectorAll('.popup__checkbox');
+
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      if (button.classList.contains('popup__checkbox_checked')) return;
+      buttons.forEach(button => {
+        button.classList.remove('popup__checkbox_checked');
+        
+        const svgs = button.querySelectorAll('.popup__svg');
+        svgs[0].classList.remove('popup__svg_active');
+        svgs[1].classList.add('popup__svg_active');
+      });
+      button.classList.add('popup__checkbox_checked');
+      const svgs = button.querySelectorAll('.popup__svg');
+      svgs[0].classList.add('popup__svg_active');
+      svgs[1].classList.remove('popup__svg_active');
+    });
+  }
+});

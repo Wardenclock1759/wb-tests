@@ -105,6 +105,24 @@
 @import url('../styles/confirm/confirm.css');
 @import url('../styles/confirm/__wrapper/confirm__wrapper.css');
 @import url('../styles/total/__info/total__info.css');
+@import url('../styles/popup/popup.css');
+@import url('../styles/popup/__container/popup__container.css');
+@import url('../styles/popup/__header-wrapper/popup__header-wrapper.css');
+@import url('../styles/popup/__header/popup__header.css');
+@import url('../styles/popup/__close/popup__close.css');
+@import url('../styles/popup/__main/popup__main.css');
+@import url('../styles/popup/__tab-nav/popup__tab-nav.css');
+@import url('../styles/popup/__tab-btn/popup__tab-btn.css');
+@import url('../styles/popup/__tab-content/popup__tab-content.css');
+@import url('../styles/popup/__subtitle/popup__subtitle.css');
+@import url('../styles/popup/__item-wrapper/popup__item-wrapper.css');
+@import url('../styles/popup/__item/popup__item.css');
+@import url('../styles/popup/__checkbox/popup__checkbox.css');
+@import url('../styles/popup/__svg/popup__svg.css');
+@import url('../styles/popup/__info-wrapper/popup__info-wrapper.css');
+@import url('../styles/popup/__text/popup__text.css');
+@import url('../styles/popup/__delete/popup__delete.css');
+@import url('../styles/popup/__submit/popup__submit.css');
 
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');

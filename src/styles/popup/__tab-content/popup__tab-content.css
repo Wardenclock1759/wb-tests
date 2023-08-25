@@ -1,0 +1,10 @@
+.popup__tab-content {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 207px;
+}
+
+.popup__tab-content_active {
+    display: flex;
+}

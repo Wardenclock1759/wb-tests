@@ -1,0 +1,10 @@
+.popup__delete {
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.popup__delete svg:hover path {
+    fill: #F55123;
+}

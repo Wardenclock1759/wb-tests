@@ -1,0 +1,15 @@
+.popup__container {
+    padding: 16px 22px 24px;
+    border-radius: 16px;
+    background-color: #FFF;
+    position: relative;
+    margin: auto;
+    height: fit-content;
+    cursor: default;
+    z-index: 2;
+}
+
+.popup__container_delivery {
+    width: 500px;
+    box-sizing: border-box;
+}

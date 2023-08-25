@@ -1,0 +1,17 @@
+.popup__item {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.popup__item_adress > .popup__text {
+    width: 400px;
+}
+
+.popup__item_adress {
+    margin-top: 10px;
+}
+
+.popup__item_adress:first-child {
+    margin-top: 0;
+}

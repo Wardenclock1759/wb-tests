@@ -1,0 +1,7 @@
+.popup__svg {
+    display: none;
+}
+
+.popup__svg_active {
+    display: block;
+}

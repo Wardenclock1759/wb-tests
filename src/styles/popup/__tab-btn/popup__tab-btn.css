@@ -1,0 +1,18 @@
+.popup__tab-btn {
+    padding: 0;
+    padding-bottom: 2px;
+    border-radius: 20px;
+    border: 2px solid rgba(203, 17, 171, 0.15); 
+    background: none;
+    width: 224px;
+    height: 36px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.popup__tab-btn_active {
+    border: 2px solid #CB11AB;
+}

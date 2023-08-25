@@ -1,0 +1,6 @@
+.popup__main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 13px;
+}
