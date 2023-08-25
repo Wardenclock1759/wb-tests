@@ -350,12 +350,26 @@ function closeDeliveryPopup() {
   deliveryPopup.classList.remove('popup_opened');
 }
 
+function closeCardPopup() {
+  const cardPopup = document.querySelector('#card__popup');
+  cardPopup.classList.remove('popup_opened');
+}
+
 const deliverySubmitButton = document.querySelector('#delivery__submit');
 const deliveryCloseButton = document.querySelector('#delivery__close');
+const cardSubmitButton = document.querySelector('#card__submit');
+const cardCloseButton = document.querySelector('#card__close');
+
 deliveryCloseButton.addEventListener('click', closeDeliveryPopup);
+cardCloseButton.addEventListener('click', closeCardPopup);
+
 deliverySubmitButton.addEventListener('click', () => {
   deliveryPopupSubmit();
   closeDeliveryPopup();
+});
+cardSubmitButton.addEventListener('click', () => {
+  cardPopupSubmit();
+  closeCardPopup();
 });
 
 const deliveryTabButton1 = document.querySelector('#delivery_tab1');
@@ -386,33 +400,86 @@ deliveryTabButton2.addEventListener('click', () => {
 const deliveryPopupOpenPanel = document.querySelector('#panel__delivery__popup');
 const deliveryPopupOpenTotal = document.querySelector('#total__delivery__popup');
 
+const cardPopupOpenPanel = document.querySelector('#panel__card__popup');
+const cardPopupOpenTotal = document.querySelector('#total__card__popup');
+
 function openDeliveryPopup() {
   const deliveryPopup = document.querySelector('#delivery__popup');
   deliveryPopup.classList.add('popup_opened');
 }
 
-const tabs = document.querySelector('#delivery__popup').querySelectorAll('.popup__tab-content');
+function openCardPopup() {
+  const cardPopup = document.querySelector('#card__popup');
+  cardPopup.classList.add('popup_opened');
+}
 
-tabs.forEach((tab) => {
-  const buttons = tab.querySelectorAll('.popup__checkbox');
+const popups = document.querySelectorAll('.popup');
 
-  for (const button of buttons) {
-    button.addEventListener('click', () => {
-      if (button.classList.contains('popup__checkbox_checked')) return;
-      buttons.forEach(button => {
-        button.classList.remove('popup__checkbox_checked');
-        
+popups.forEach(popup => {
+  const tabs = popup.querySelectorAll('.popup__tab-content');
+  tabs.forEach((tab) => {
+    const buttons = tab.querySelectorAll('.popup__checkbox');
+  
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        if (button.classList.contains('popup__checkbox_checked')) return;
+        buttons.forEach(button => {
+          button.classList.remove('popup__checkbox_checked');
+          
+          const svgs = button.querySelectorAll('.popup__svg');
+          svgs[0].classList.remove('popup__svg_active');
+          svgs[1].classList.add('popup__svg_active');
+        });
+        button.classList.add('popup__checkbox_checked');
         const svgs = button.querySelectorAll('.popup__svg');
-        svgs[0].classList.remove('popup__svg_active');
-        svgs[1].classList.add('popup__svg_active');
+        svgs[0].classList.add('popup__svg_active');
+        svgs[1].classList.remove('popup__svg_active');
       });
-      button.classList.add('popup__checkbox_checked');
-      const svgs = button.querySelectorAll('.popup__svg');
-      svgs[0].classList.add('popup__svg_active');
-      svgs[1].classList.remove('popup__svg_active');
-    });
-  }
+    }
+  });
 });
+
+function cardPopupSubmit() {
+  let value = {};
+  const activeTab = document.querySelector('#card__popup').querySelector('.popup__tab-content_active');
+
+  const items = activeTab.querySelectorAll('.popup__item');
+  items.forEach((item) => {
+    const checkbox = item.querySelector('.popup__checkbox');
+    if (checkbox.classList.contains('popup__checkbox_checked')) {
+      value = item;
+    }
+  });
+  parseCreditCard(value)
+}
+
+function parseCreditCard(object) {
+  const image = object.querySelector('.payment__image').innerHTML;
+  const number = object.querySelector('.popup__text').textContent;
+
+  const totalCardContainer = document.querySelector('#total__card__container');
+  const totalImage = totalCardContainer.querySelector('.payment__image');
+  const totalNumber = totalCardContainer.querySelector('.panel__text');
+  totalImage.innerHTML = image;
+  totalNumber.textContent = number;
+
+  const card = document.querySelector('#credit-template').content.cloneNode(true);
+  card.querySelector('.payment__image').innerHTML = image;
+
+  const cardNumber = document.createElement('p');
+  cardNumber.classList.add('panel__text');
+  cardNumber.textContent = number;
+  card.querySelector('.payment__card-info').append(cardNumber);
+
+  const cardExp = document.createElement('p');
+  cardExp.classList.add('panel__text');
+  cardExp.textContent = '01/30';
+  card.querySelector('.payment__card-info').append(cardExp);
+
+  const cardContainer = document.querySelector('#payment__container');
+  cardContainer.innerHTML = '';
+  cardContainer.append(card);
+}
 
 function deliveryPopupSubmit() {
   const activeTab = document.querySelector('#delivery__popup').querySelector('.popup__tab-content_active');
@@ -441,6 +508,8 @@ function parseAdress(object) {
   newAdress.textContent = adress;
   newAdress.classList.add('panel__content');
   deliveryTextContainer.append(newAdress);
+  document.querySelector('#total__adress').textContent = adress;
+  document.querySelector('#total__delivery__title').textContent = 'Доставка по адресу';
 }
 
 function parseStore(object) {
@@ -450,13 +519,14 @@ function parseStore(object) {
   const shop = document.querySelector('#shop-template').content.querySelector('.shop').cloneNode(true);
   const deliveryTextContainer = document.querySelector('.panel__content');
   deliveryTextContainer.innerHTML = '';
-  console.log(shop)
   const addressContainer = shop.querySelector('.panel__point');
   const raitingContainer = shop.querySelector('.panel__subtext');
   addressContainer.textContent = adress;
   raitingContainer.textContent = raiting;
 
   deliveryTextContainer.append(shop);
+  document.querySelector('#total__adress').textContent = adress;
+  document.querySelector('#total__delivery__title').textContent = 'Доставка в пункт выдачи';
 }
 
 const totalCheckbox = document.querySelector('#checkbox__total');
@@ -491,6 +561,8 @@ totalCheckbox.addEventListener('click', handleTotalCheckboxClick);
 
 deliveryPopupOpenPanel.addEventListener('click', openDeliveryPopup);
 deliveryPopupOpenTotal.addEventListener('click', openDeliveryPopup);
+cardPopupOpenPanel.addEventListener('click', openCardPopup);
+cardPopupOpenTotal.addEventListener('click', openCardPopup);
 
 initDelivery();
 initForm();

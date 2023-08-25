@@ -175,9 +175,9 @@
         <div class="panel panel_card" id="panel__card">
           <div class="panel__title-wrapper">
             <h2 class="panel__title">Способ оплаты</h2>
-            <button class="panel__button">Изменить</button>
+            <button class="panel__button" id="panel__card__popup">Изменить</button>
           </div>
-          <div class="payment">
+          <div class="payment" id="payment__container">
             <div class="payment__image">
               <svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.6812 1.84383L14.8644 5.75836H14.6805V1.00037H12.0851V9.00245H14.2372C14.8211 9.00245 15.3402 8.66723 15.5889 8.14817L17.4166 4.24445H17.6004V9.00245H20.1958V1.00037H18.0113C17.449 1.00037 16.9191 1.33559 16.6812 1.84383Z" fill="#319B42"/>
@@ -266,7 +266,7 @@
           <div class="total__section">
             <div class="total__delivery">
               <div class="total__title-wrapper">
-                <p class="total__title total__title_small">Доставка в пункт выдачи</p>
+                <p class="total__title total__title_small" id="total__delivery__title">Доставка в пункт выдачи</p>
                 <button class="total__button total__button_svg" id="total__delivery__popup">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1585 3.05991L16.9401 6.84154L6.72705 17.0546L2.73544 17.8529C2.38557 17.9229 2.07711 17.6144 2.14709 17.2646L2.94541 13.273L13.1585 3.05991ZM4.17707 13.9321L13.1585 4.95072L15.0493 6.84154L6.06789 15.8229L3.70436 16.2956L4.17707 13.9321Z" fill="#CB11AB"/>
@@ -274,7 +274,7 @@
                   </svg>
                 </button>
               </div>
-              <p class="total__text">Бишкек, улица Ахматбека Суюмбаева, 12/1</p>
+              <p class="total__text" id="total__adress">Бишкек, улица Ахматбека Суюмбаева, 12/1</p>
               <p class="total__text total__text_underline">5–8 фев</p>
             </div>
             <div class="panel__confirmation panel__confirmation_total">
@@ -308,14 +308,14 @@
             <div class="total__card">
               <div class="total__title-wrapper">
                 <p class="total__title total__title_small">Оплата картой</p>
-                <button class="total__button total__button_svg">
+                <button class="total__button total__button_svg" id="total__card__popup">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1585 3.05991L16.9401 6.84154L6.72705 17.0546L2.73544 17.8529C2.38557 17.9229 2.07711 17.6144 2.14709 17.2646L2.94541 13.273L13.1585 3.05991ZM4.17707 13.9321L13.1585 4.95072L15.0493 6.84154L6.06789 15.8229L3.70436 16.2956L4.17707 13.9321Z" fill="#CB11AB"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9948 7.78715L12.2132 4.00552L13.6313 2.5874C14.4145 1.8042 15.6843 1.8042 16.4675 2.5874L17.4129 3.53281C18.1961 4.31601 18.1961 5.58584 17.4129 6.36904L15.9948 7.78715ZM16.4675 5.42363C16.7286 5.16256 16.7286 4.73929 16.4675 4.47822L15.5221 3.53281C15.261 3.27174 14.8378 3.27174 14.5767 3.53281L14.104 4.00552L15.9948 5.89634L16.4675 5.42363Z" fill="#CB11AB"/>
                   </svg>
                 </button>
               </div>
-              <div class="payment payment_total">
+              <div class="payment payment_total" id="total__card__container">
                 <div class="payment__image">
                   <svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.6812 1.84383L14.8644 5.75836H14.6805V1.00037H12.0851V9.00245H14.2372C14.8211 9.00245 15.3402 8.66723 15.5889 8.14817L17.4166 4.24445H17.6004V9.00245H20.1958V1.00037H18.0113C17.449 1.00037 16.9191 1.33559 16.6812 1.84383Z" fill="#319B42"/>
@@ -552,6 +552,119 @@
         </div>
       </div>
     </div>
+    <div class="popup" id="card__popup">
+      <div class="popup__container popup__container_card">
+        <div class="popup__header-wrapper">
+          <h2 class="popup__header">Способ оплаты</h2>
+          <button class="popup__close" id="card__close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M4.92961 17.6568C4.53909 18.0473 4.53909 18.6805 4.92961 19.071C5.32014 19.4615 5.9533 19.4615 6.34383 19.071L12.0008 13.414L17.658 19.0711C18.0485 19.4616 18.6817 19.4616 19.0722 19.0711C19.4627 18.6806 19.4627 18.0474 19.0722 17.6569L13.4151 11.9998L19.0717 6.34309C19.4623 5.95257 19.4623 5.3194 19.0717 4.92888C18.6812 4.53836 18.0481 4.53836 17.6575 4.92888L12.0008 10.5856L6.34427 4.92899C5.95374 4.53846 5.32058 4.53846 4.93005 4.92899C4.53953 5.31951 4.53953 5.95267 4.93005 6.3432L10.5866 11.9998L4.92961 17.6568Z" fill="#A0A0A4"/>
+            </svg>
+          </button>
+        </div>
+        <div class="popup__main">
+          <div class="popup__tab-content popup__tab-content_active" id="card__tab">
+            <div class="popup__item-wrapper" id="card_items">
+              <div class="popup__item popup__item_card">
+                <button class="popup__checkbox popup__checkbox_checked">
+                  <svg class="popup__svg popup__svg_active" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" fill="#CB11AB" stroke="#CB11AB"/>
+                    <path d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" fill="white"/>
+                  </svg>
+                  <svg class="popup__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" stroke="black" stroke-opacity="0.2"/>
+                  </svg>
+                </button>
+                <div class="popup__card-wrapper">
+                  <div class="payment__image">
+                    <svg width="30" height="10" viewBox="0 0 30 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.6812 1.84383L14.8644 5.75836H14.6805V1.00037H12.0851V9.00245H14.2372C14.8211 9.00245 15.3402 8.66723 15.5889 8.14817L17.4166 4.24445H17.6004V9.00245H20.1958V1.00037H18.0113C17.449 1.00037 16.9191 1.33559 16.6812 1.84383Z" fill="#319B42"/>
+                      <path d="M6.97242 2.04929L5.90181 5.75836H5.71797L4.63654 2.04929C4.4527 1.4221 3.87954 1.00037 3.23069 1.00037H0.667709V9.00245H3.26313V4.24445H3.44697L4.93934 9.00245H6.66962L8.16199 4.24445H8.34583V9.00245H10.9412V1.00037H8.37827C7.72942 1.00037 7.14545 1.4221 6.97242 2.04929Z" fill="#319B42"/>
+                      <path d="M21.3243 4.56745V9.00245H23.9206V6.40635H26.7116C27.9231 6.40635 28.9508 5.63834 29.3294 4.56745H21.3243Z" fill="#319B42"/>
+                      <path d="M26.6357 1.00037H20.859C21.216 2.90417 22.8819 4.24549 24.8832 4.24549H29.3726C29.405 4.07241 29.4267 3.87771 29.4267 3.683C29.4267 2.13616 28.1826 1.00037 26.6357 1.00037Z" fill="url(#paint0_linear_2_3460)"/>
+                      <defs>
+                      <linearGradient id="paint0_linear_2_3460" x1="20.859" y1="2.62293" x2="29.4267" y2="2.62293" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#00A3E1"/>
+                      <stop offset="0.3042" stop-color="#009ADD"/>
+                      <stop offset="0.7987" stop-color="#0082D4"/>
+                      <stop offset="1" stop-color="#0076CF"/>
+                      </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <p class="popup__text">1234 56•• •••• 1234</p>
+                </div>
+              </div>
+              <div class="popup__item popup__item_card">
+                <button class="popup__checkbox">
+                  <svg class="popup__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" fill="#CB11AB" stroke="#CB11AB"/>
+                    <path d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" fill="white"/>
+                  </svg>
+                  <svg class="popup__svg popup__svg_active" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" stroke="black" stroke-opacity="0.2"/>
+                  </svg>
+                </button>
+                <div class="popup__card-wrapper">
+                  <div class="payment__image">
+                    <svg width="32" height="12" viewBox="0 0 32 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M16.4709 4.17815C16.453 5.58578 17.7254 6.37131 18.6838 6.83836C19.6686 7.31761 19.9994 7.62491 19.9956 8.05338C19.9881 8.70928 19.21 8.99867 18.4818 9.00993C17.2113 9.02965 16.4727 8.66696 15.8855 8.3926L15.4279 10.5341C16.017 10.8057 17.108 11.0425 18.2394 11.0528C20.8949 11.0528 22.6323 9.74195 22.6418 7.70948C22.6521 5.13008 19.0738 4.98723 19.0982 3.83424C19.1067 3.4847 19.4403 3.11161 20.1713 3.01671C20.5331 2.96884 21.532 2.93215 22.6643 3.45364L23.1087 1.38174C22.4998 1.15995 21.7171 0.947548 20.7427 0.947548C18.2431 0.947548 16.485 2.27625 16.4709 4.17815ZM27.3796 1.12607C26.8947 1.12607 26.4859 1.40896 26.3037 1.84307L22.5102 10.9006H25.1638L25.6919 9.44123H28.9347L29.241 10.9006H31.5799L29.5389 1.12607H27.3796ZM27.7507 3.76657L28.5165 7.43692H26.4192L27.7507 3.76657ZM13.2535 1.12607L11.1618 10.9006H13.6904L15.7812 1.12607H13.2535ZM9.51266 1.12607L6.88061 7.77895L5.81595 2.12213C5.69101 1.49072 5.19768 1.12607 4.64982 1.12607H0.347122L0.286962 1.4099C1.17028 1.60157 2.17385 1.91074 2.78179 2.24151C3.15386 2.44351 3.2601 2.62015 3.38222 3.10034L5.39874 10.9006H8.07123L12.1682 1.12607H9.51266Z" fill="#1434CB"/>
+                    </svg>
+                  </div>
+                  <p class="popup__text">1234 56•• •••• 1234</p>
+                </div>
+              </div>
+              <div class="popup__item popup__item_card">
+                <button class="popup__checkbox">
+                  <svg class="popup__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" fill="#CB11AB" stroke="#CB11AB"/>
+                    <path d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" fill="white"/>
+                  </svg>
+                  <svg class="popup__svg popup__svg_active" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" stroke="black" stroke-opacity="0.2"/>
+                  </svg>
+                </button>
+                <div class="popup__card-wrapper">
+                  <div class="payment__image">
+                    <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M22.9337 11.3367V11.0649H22.8629L22.781 11.2514L22.6996 11.0649H22.6286V11.3367H22.6788V11.132L22.7554 11.3086H22.8075L22.884 11.1315V11.3367H22.9339H22.9337ZM22.4846 11.3367V11.1115H22.5752V11.0656H22.3438V11.1115H22.4343V11.3367H22.4846Z" fill="#F79410"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M14.8883 12.5014H8.76367V1.49463H14.8884L14.8883 12.5014Z" fill="#FF5F00"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.15147 6.99987C9.15147 4.76713 10.1969 2.77821 11.8248 1.49643C10.5928 0.524985 9.06814 -0.00258565 7.49923 -0.000236328C3.63356 -0.000236328 0.5 3.13376 0.5 6.99987C0.5 10.8659 3.63356 13.9999 7.49923 13.9999C9.06814 14.0023 10.5929 13.4747 11.8249 12.5032C10.1971 11.2217 9.15147 9.23269 9.15147 6.99987Z" fill="#EB001B"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M23.1497 6.99987C23.1497 10.8659 20.0161 13.9999 16.1505 13.9999C14.5814 14.0022 13.0565 13.4747 11.8242 12.5032C13.4526 11.2215 14.498 9.23269 14.498 6.99987C14.498 4.76699 13.4526 2.77821 11.8242 1.49643C13.0564 0.524984 14.5813 -0.00251272 16.1504 -0.000236807C20.016 -0.000236807 23.1496 3.13376 23.1496 6.99987" fill="#F79410"/>
+                    </svg>
+                  </div>
+                  <p class="popup__text">1234 56•• •••• 1234</p>
+                </div>
+              </div>
+              <div class="popup__item popup__item_card">
+                <button class="popup__checkbox">
+                  <svg class="popup__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" fill="#CB11AB" stroke="#CB11AB"/>
+                    <path d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" fill="white"/>
+                  </svg>
+                  <svg class="popup__svg popup__svg_active" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7.5" stroke="black" stroke-opacity="0.2"/>
+                  </svg>
+                </button>
+                <div class="popup__card-wrapper">
+                  <div class="payment__image">
+                    <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M14.8883 12.5017H8.76367V1.49487H14.8884L14.8883 12.5017Z" fill="#6C6BBD"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.15147 7.00012C9.15147 4.76738 10.1969 2.77845 11.8248 1.49668C10.5928 0.525229 9.06814 -0.00234151 7.49923 7.81249e-06C3.63356 7.81249e-06 0.5 3.13401 0.5 7.00012C0.5 10.8662 3.63356 14.0002 7.49923 14.0002C9.06814 14.0025 10.5929 13.4749 11.8249 12.5035C10.1971 11.2219 9.15147 9.23293 9.15147 7.00012Z" fill="#EB001B"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M23.1497 7.00012C23.1497 10.8662 20.0161 14.0002 16.1505 14.0002C14.5814 14.0024 13.0565 13.4749 11.8242 12.5035C13.4526 11.2217 14.498 9.23293 14.498 7.00012C14.498 4.76723 13.4526 2.77845 11.8242 1.49668C13.0564 0.525229 14.5813 -0.00226858 16.1504 7.33385e-06C20.016 7.33385e-06 23.1496 3.13401 23.1496 7.00012" fill="#0099DF"/>
+                    </svg>
+                  </div>
+                  <p class="popup__text">1234 56•• •••• 1234</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="popup__footer">
+            <button class="popup__submit" id="card__submit">Выбрать</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <footer class="footer">
     <span class="footer__title">&copy; 2022 ООО «Товары и точка»</span>
@@ -722,6 +835,10 @@
         <span class="panel__subtext">Ежедневно с 10 до 21</span>
       </div>
     </div>
+  </template>
+  <template id="credit-template">
+    <div class="payment__image"></div>
+    <div class="payment__card-info"></div>
   </template>
 </body>
 </html>
