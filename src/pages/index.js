@@ -213,7 +213,6 @@ function initForm() {
 
       if (validationString && !inputStates[input.id].valid) {
         const regex = new RegExp(validationString);
-        console.log(regex.test(input.value))
         if (regex.test(input.value)) {
           const errorField = formInput.querySelector(`#${input.id}_error`);
           errorField.textContent = messagesContent[input.id];
