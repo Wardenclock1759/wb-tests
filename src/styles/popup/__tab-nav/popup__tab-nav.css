@@ -3,3 +3,9 @@
     justify-content: space-between;
     gap: 8px;
 }
+
+@media screen and (max-width: 720px) {
+    .popup__tab-nav {
+        padding: 0 16px 0;
+    }
+} 

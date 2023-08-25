@@ -3,3 +3,9 @@
     justify-content: space-between;
     gap: auto;
 }
+
+@media screen and (max-width: 720px) {
+    .popup__header-wrapper {
+        padding: 0 11px 13px 16px;
+    }
+} 

@@ -123,6 +123,6 @@
 @import url('../styles/popup/__text/popup__text.css');
 @import url('../styles/popup/__delete/popup__delete.css');
 @import url('../styles/popup/__submit/popup__submit.css');
-
+@import url('../styles/popup/__footer/popup__footer.css');
 @import url('../styles/footer/footer.css');
 @import url('../styles/footer/__title/footer__title.css');

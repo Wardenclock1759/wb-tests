@@ -6,3 +6,9 @@
     line-height: 28px;
     letter-spacing: -0.2px; 
 }
+
+@media screen and (max-width: 720px) {
+    .popup__header {
+        font-weight: 600;
+    }
+} 
