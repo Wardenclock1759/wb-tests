@@ -100,6 +100,31 @@ function initDelivery() {
     cartButtonSmall.append(floater);
 }
 
+function initForm() {
+  const formInputs = document.querySelectorAll('.form__input-wrapper');
+  formInputs.forEach((formInput) => {
+    const input = formInput.querySelector('.form__input');
+    const label = formInput.querySelector('.form__label');
+
+    if (input.value !== '') {
+      label.classList.remove('form__label_hidden');
+    }
+    
+    input.addEventListener('blur', () => {
+      if (input.value === '') {
+        label.classList.add('form__label_hidden');
+      }
+    });
+    input.addEventListener('input', () => {
+      if (input.value !== '') {
+        label.classList.remove('form__label_hidden');
+      } else {
+        label.classList.add('form__label_hidden');
+      }
+    })
+  });
+}
+
 const cartButton = document.querySelector('#cart__button');
 const itemContainer = document.querySelector('.card__list_items');
 const itemContainerHeight = itemContainer.clientHeight;
@@ -166,22 +191,4 @@ cartCheckbox.addEventListener('click', () => {
 });
 
 initDelivery();
-
-const formInputs = document.querySelectorAll('.form__input-wrapper');
-formInputs.forEach((formInput) => {
-  const input = formInput.querySelector('.form__input');
-  const label = formInput.querySelector('.form__label');
-  
-  input.addEventListener('blur', () => {
-    if (input.value === '') {
-      label.classList.add('form__label_hidden');
-    }
-  });
-  input.addEventListener('input', () => {
-    if (input.value !== '') {
-      label.classList.remove('form__label_hidden');
-    } else {
-      label.classList.add('form__label_hidden');
-    }
-  })
-});
+initForm();
