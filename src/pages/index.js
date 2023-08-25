@@ -6,6 +6,38 @@ const data = require('../data.json');
 
 const cards = [];
 
+function prettify(number) {
+  if (number < 1000) {
+    return number;
+  } else {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+}
+
+function initiateTotal() {
+  let totalNew = 0;
+  let totalOld = 0;
+  let itemCount = 0;
+  cards.forEach((card) => {
+    const price = card.getTotal();
+    totalNew += price.newTotal;
+    totalOld += price.oldTotal;
+    itemCount += price.itemTotal;
+  });
+  const currency = document.createElement('span');
+  currency.classList.add('total__title_currency');
+  currency.textContent = ' сом';
+  
+  const newValue = document.querySelector('#total__new__value');
+  newValue.innerHTML = '';
+  newValue.textContent = prettify(totalNew);
+  newValue.append(currency);
+
+  document.querySelector('#total__item__value').textContent = `${itemCount} товара`;
+  document.querySelector('#total__old__value').textContent = `${prettify(totalOld)} сом`;
+  document.querySelector('#total__discount__value').textContent = `−${prettify(totalOld - totalNew)} сом`;
+}
+
 const cardSection = new Section(
     (item, template) => {
       const cardElement = createCard(item, template);
@@ -24,6 +56,7 @@ function createCard(cardData, template, absent = true) {
     const card = new Card(
       cardData,
       template,
+      initiateTotal
     );
     const newCard = card.generateCard();
     if (absent) cards.push(card);
@@ -170,6 +203,7 @@ newPrice.forEach(priceContainer => {
 const cartCheckbox = document.querySelector('.cart__checkbox');
 const checkboxUnchecked = document.querySelector('#cart__checkbox_unchecked');
 const checkboxChecked = document.querySelector('#cart__checkbox_checked');
+
 cartCheckbox.addEventListener('click', () => {
   if (checkboxChecked.classList.contains('cart__checkbox_unchecked')) {
     checkboxChecked.classList.remove('cart__checkbox_unchecked');
@@ -192,3 +226,4 @@ cartCheckbox.addEventListener('click', () => {
 
 initDelivery();
 initForm();
+initiateTotal();

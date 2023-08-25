@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(cardData, templateSelector) {
+    constructor(cardData, templateSelector, changeTotal) {
         this._title = cardData.title;
         this._options = cardData.options;
         this._seller = cardData.seller;
@@ -7,10 +7,14 @@ export default class Card {
         this._inStock = cardData.inStock;
         this._counterValue = cardData.initial;
 
+        this._changeTotal = changeTotal;
+
         const [number, currency] = this._splitString(cardData.newPrice);
+        const [oldPriceValue] = this._splitString(cardData.oldPrice);
         this._newPrice = number;
         this._currency = currency;
         this._oldPrice = cardData.oldPrice;
+        this._oldPriceValue = oldPriceValue;
         
         this._image = cardData.src;
         this._templateSelector = templateSelector;
@@ -52,6 +56,7 @@ export default class Card {
         }
 
         this._initiateTotal();
+        this._changeTotal();
     }
     
     _increaseCounter() {
@@ -65,6 +70,7 @@ export default class Card {
         }
 
         this._initiateTotal();
+        this._changeTotal();
     }
 
     _initiateCounter() {
@@ -202,6 +208,7 @@ export default class Card {
 
         this._checkbox.addEventListener('click', () => {
             this.cartCheckboxClick();
+            this._changeTotal();
         });
         this._decreaseButton.addEventListener('click', () => {
             this._decreaseCounter();
@@ -231,6 +238,8 @@ export default class Card {
         const unChecked = this._checkbox.querySelector('.card__checkbox_unchecked');
         checked.classList.add('card__checkbox_hidden');
         unChecked.classList.remove('card__checkbox_hidden');
+
+        this._changeTotal();
     }
 
     setUnchecked() {
@@ -238,6 +247,20 @@ export default class Card {
         const unChecked = this._checkbox.querySelector('.card__checkbox_unchecked');
         checked.classList.remove('card__checkbox_hidden');
         unChecked.classList.add('card__checkbox_hidden');
+
+        this._changeTotal();;
+    }
+
+    getTotal() {
+        const toExclude = this._checkbox.querySelector('.card__checkbox_checked').classList.contains('card__checkbox_hidden');
+        const newTotal = toExclude ? 0 : this._counterValue * this._newPrice;
+        const oldTotal = toExclude ? 0 : this._counterValue * this._oldPriceValue;
+        const itemTotal = toExclude ? 0 : this._counterValue;
+        return {
+            newTotal,
+            oldTotal,
+            itemTotal
+        }
     }
 
 }
