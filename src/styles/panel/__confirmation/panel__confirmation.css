@@ -20,5 +20,6 @@
     .panel__confirmation_total {
         margin: 0;
         padding-top: 9px;
+        background-color: #F0ECF4;
     }
 }
